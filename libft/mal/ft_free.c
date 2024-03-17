@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:04:05 by dehamad           #+#    #+#             */
-/*   Updated: 2024/01/28 15:51:27 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/17 22:15:35 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	free_ptr(void **ptr)
 {
-	if (!(*ptr))
+	if (!ptr || !(*ptr))
 		return ;
 	free(*ptr);
 	*ptr = NULL;
@@ -49,6 +49,13 @@ void	ft_free(void *address, char target)
 }
 
 /*
+	static void	free_ptr(void **ptr)
+	{
+		if (!ptr || !(*ptr))
+			we are checking if the ptr it self is NULL 
+			or the value it points to is NULL, \0
+	}
+	
 	arr: Pointer to a pointer to a pointer to void (e.g., void ***).
 	*arr: Dereferencing once gives you a 
 		pointer to a pointer to void (e.g., void **).
