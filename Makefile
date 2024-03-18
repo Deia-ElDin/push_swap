@@ -6,7 +6,7 @@
 #    By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 19:07:04 by dehamad           #+#    #+#              #
-#    Updated: 2024/03/18 23:35:55 by dehamad          ###   ########.fr        #
+#    Updated: 2024/03/19 02:58:27 by dehamad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,28 +17,30 @@ CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 AR = ar
 
 LIBFT = libft/libft.a
-SRCS = main.c utils.c parsing.c sign_parsing_utils.c stack_validation_utils.c
+SRCS = main.c parsing.c utils.c sign_parsing_utils.c stack_validation_utils.c \
+	stack_swap_moves.c
 BNS = main.c
 OBJS = $(SRCS:.c=.o)
 BNS_OBJS = $(BNS:.c=.o)
 
-all: $(NAME)
+all: $(LIBFT) $(NAME)
 
 $(NAME): $(OBJS) 
-	make -C libft
-	${CC} ${CFLAGS} ${OBJS} ${LIBFT} -o ${NAME}
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-bonus: ${BNS_OBJS}
-	make -C libft
-	${CC} ${CFLAGS} ${LIBFT} ${BNS_OBJS} -o ${NAME}_bonus
+bonus: $(LIBFT) $(BNS_OBJS)
+	$(CC) $(CFLAGS) $(LIBFT) $(BNS_OBJS) -o $(NAME)_bonus
 
+$(LIBFT):
+	make -C libft
+	
 clean:
 	rm -f $(OBJS) ${BNS_OBJS}
-	make -C libft clean
+	# make -C libft clean
 
 fclean: clean
 	rm -f $(NAME) ${NAME}_bonus
-	make -C libft fclean
+	# make -C libft fclean
 
 re: fclean all
 

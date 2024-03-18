@@ -6,16 +6,16 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 03:33:15 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 07:46:41 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 01:55:41 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-void	ft_lstclear(t_list **lst)
+void	ft_lstclear(t_stack **lst)
 {
-	t_list	*current_node;
-	t_list	*next_node;
+	t_stack	*current_node;
+	t_stack	*next_node;
 
 	if (!lst || !*lst)
 		return ;

@@ -6,15 +6,15 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 06:46:44 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 00:12:33 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 02:06:16 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-void	ft_lstcreate(t_list **lst, char **split, void (*f)())
+void	ft_lstcreate(t_stack **lst, char **split, void (*f)())
 {
-	t_list	*new_node;
+	t_stack	*new_node;
 	t_atoi	res;
 	int		index;
 	int		value;

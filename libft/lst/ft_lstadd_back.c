@@ -6,15 +6,15 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 02:46:49 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 07:11:39 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 02:16:13 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
-	t_list	*last_node;
+	t_stack	*last_node;
 
 	if (!lst || !new)
 		return ;

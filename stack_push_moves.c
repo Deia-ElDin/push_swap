@@ -1,21 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   stack_push_moves.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 02:22:57 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 01:55:41 by dehamad          ###   ########.fr       */
+/*   Created: 2024/03/19 01:52:20 by dehamad           #+#    #+#             */
+/*   Updated: 2024/03/19 01:52:28 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include "push_swap.h"
 
-void	ft_lstadd_front(t_stack **lst, t_stack *new)
-{
-	if (!lst || !new)
-		return ;
-	new->next = *lst;
-	*lst = new;
-}

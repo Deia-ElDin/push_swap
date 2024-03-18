@@ -6,13 +6,13 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:27:53 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 01:45:03 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 01:55:41 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	stack_is_duplicated(int value, t_list *next_node)
+bool	stack_is_duplicated(int value, t_stack *next_node)
 {
 	if (!next_node)
 		return (true);
@@ -23,7 +23,7 @@ bool	stack_is_duplicated(int value, t_list *next_node)
 	return (true);
 }
 
-bool	stack_is_sorted(int value, t_list *next_node)
+bool	stack_is_sorted(int value, t_stack *next_node)
 {
 	if (!next_node)
 		return (true);

@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 12:09:34 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 01:43:16 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 02:05:18 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,24 @@
 
 # include "../libft.h"
 
-typedef struct s_list
+typedef struct s_stack
 {
 	int				content;
 	int				index;
-	struct s_list	*next;
-	struct s_list	*prev;
-}	t_list;
+	int				size;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}	t_stack;
 
-void	ft_lstcreate(t_list **lst, char **split, void (*f)());
-t_list	*ft_lstnew(int content, int index);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst);
-void	ft_lstclear(t_list **lst);
-bool	ft_lstiter(t_list *lst, bool (*f)(int, t_list *));
-t_list	*ft_lstmap(t_list *lst, int *(*f)(int));
+void	ft_lstcreate(t_stack **lst, char **split, void (*f)());
+t_stack	*ft_lstnew(int content, int index);
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
+int		ft_lstsize(t_stack *lst);
+t_stack	*ft_lstlast(t_stack *lst);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
+void	ft_lstdelone(t_stack *lst);
+void	ft_lstclear(t_stack **lst);
+bool	ft_lstiter(t_stack *lst, bool (*f)(int, t_stack *));
+t_stack	*ft_lstmap(t_stack *lst, int *(*f)(int));
 
 #endif

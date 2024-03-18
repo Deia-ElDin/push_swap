@@ -6,13 +6,13 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 03:10:00 by dehamad           #+#    #+#             */
-/*   Updated: 2023/12/26 12:18:55 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 01:55:41 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_stack	*ft_lstlast(t_stack *lst)
 {
 	if (!lst)
 		return (NULL);
