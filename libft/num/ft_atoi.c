@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 21:58:06 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 10:45:31 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 12:29:33 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ t_atoi	ft_atoi(const char *str)
 		str++;
 	if ((*str == '-' && --res.sign) || (*str == '+' && ++res.sign))
 		str++;
+	if (!res.nbr && res.sign && !(*str >= '0' && *str <= '9'))
+		return (res.error = true, res.nbr = 0, res);
 	while (*str >= '0' && *str <= '9')
 	{
 		if (res.nbr < 0 && res.sign < 0)
@@ -36,7 +38,5 @@ t_atoi	ft_atoi(const char *str)
 			return (res.error = true, res.nbr = 0, res);
 		str++;
 	}
-	if (!res.nbr && res.sign)
-		return (res.error = true, res.nbr = 0, res);
 	return (res);
 }

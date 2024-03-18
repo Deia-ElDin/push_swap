@@ -6,19 +6,22 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 03:51:00 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 06:40:36 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 12:01:53 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(int))
+void	ft_lstiter(t_list *lst, void (*f)(int, t_list *))
 {
+	int	value;
+
 	if (!lst)
 		return ;
 	while (lst)
 	{
-		f(lst->content);
+		value = lst->content;
+		f(value, lst->next);
 		lst = lst->next;
 	}
 }

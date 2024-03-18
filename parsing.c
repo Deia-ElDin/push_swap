@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:22:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 10:59:09 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 12:26:33 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,9 @@ static void	is_int(char *av)
 		if (j > i)
 		{
 			res = ft_atoi(av + i);
+			printf("res.nbr: %ld\n", res.nbr);
+			printf("res.sign: %d\n", res.sign);
+			printf("res.error: %d\n", res.error);
 			if (res.error)
 				exit_error();
 		}
@@ -78,13 +81,22 @@ static void	is_int(char *av)
 	}
 }
 
-// 2147483647, -2147483648
+static void	is_dup(int value, t_list *next_node)
+{
+	if (!next_node)
+		return ;
+	if (value == next_node->content)
+		exit_error();
+	if (next_node->next)
+		is_dup(value, next_node->next);
+}
+
 
 bool	parsing(int ac, char **av)
 {
 	char	*avs_str;
 	char	**split;
-	// t_list	*stack_a;
+	t_list	*stack_a;
 	// t_list	*stack_b;
 
 	avs_iter(av, is_empty);
@@ -93,13 +105,11 @@ bool	parsing(int ac, char **av)
 	avs_map(ac, av, &avs_str);
 	split = ft_split(avs_str, ' ');
 	ft_free(&avs_str, 'p');
-	ft_printf(1, "split: %a\n", split);
-	// is_int(split);
-	// stack_a = NULL;
-	// ft_lstcreate(&stack_a, split);
-	// ft_free(&split, 'a');
-	// ft_printf(1, "stack_a: %l\n", stack_a);
-	// ft_lstclear(&stack_a);
+	stack_a = NULL;
+	ft_lstcreate(&stack_a, split);
+	ft_lstiter(stack_a, is_dup);
+	ft_free(&split, 'a');
+	ft_lstclear(&stack_a);
 	return (true);
 }
 
@@ -145,6 +155,7 @@ bool	parsing(int ac, char **av)
 		if (j > i)
 		{
 			res = ft_atoi(av + i);
+				note that our atoi handles cases such as ( - ), ( + ), ( -+ )
 			if (res.error)
 				exit_error();
 		}

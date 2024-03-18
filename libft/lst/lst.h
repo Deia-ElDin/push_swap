@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 12:09:34 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 08:21:45 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 12:02:06 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst);
 void	ft_lstclear(t_list **lst);
-void	ft_lstiter(t_list *lst, void (*f)(int));
+void	ft_lstiter(t_list *lst, void (*f)(int, t_list *));
 t_list	*ft_lstmap(t_list *lst, int *(*f)(int));
 
 #endif
