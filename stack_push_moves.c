@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 01:52:20 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 03:22:10 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 03:31:25 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,13 @@ void	push(t_stack **from, t_stack **to)
 	if (from_top_next)
 		from_top_next->prev = NULL;
 	*from = from_top_next;
-	to_top->prev = from_top;
-	from_top->next = to_top;
+	if (to_top)
+	{
+		to_top->prev = from_top;
+		from_top->next = to_top;
+	}
+	else
+		from_top->next = NULL;
 	*to = from_top;
 }
 
@@ -58,11 +63,17 @@ void	push(t_stack **from, t_stack **to)
 				- update the from (stack) ptr to point to from_top_next.
 
 		TO STACK:
-			7) to_top->prev = from_top;
-				- the prev of to_top will be from_top.
-			8) from_top->next = to_top;
-				- the next of from_top will be to_top.
+			7) if (to_top)
+				if to_top exists, if we have any elements at to (stack) then:
+				- to_top->prev = from_top;
+					the prev of to_top will be from_top.
+				- from_top->next = to_top;
+					the next of from_top will be to_top.
+			8) else if the to stack is empty:
+				- from_top->next = NULL;
+					the next of from_top will be NULL.
 			9) *to = from_top;
-				- update the to (stack) ptr to point to from_top.
+				- regarding we have nodes at to (stack) or not,
+				we update the to (stack) ptr to point to from_top.
 	}
 */

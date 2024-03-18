@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:22:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 02:22:39 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 03:24:16 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,14 +87,17 @@ void	parsing(char **av, t_stack **stack_a, t_stack **stack_b)
 	split = ft_split(avs_str, ' ');
 	ft_free(&avs_str, 'p');
 	ft_lstcreate(stack_a, split, exit_error);
-	ft_printf(1, "\n\nstack_a: %l", *stack_a);
+	ft_printf(1, "\n\n stack_a: %l", *stack_a);
 	ft_free(&split, 'a');
 	ft_lstiter(*stack_a, stack_is_duplicated);
 	if (ft_lstiter(*stack_a, stack_is_sorted))
 		exit_success(*stack_a, *stack_b);
 	(void)stack_b;
 	swap(stack_a);
-	ft_printf(1, "\n\nstack_a: %l", *stack_a);
+	ft_printf(1, "\n\n stack_a: %l", *stack_a);
+	push(stack_a, stack_b);
+	ft_printf(1, "\n\n stack_a: %l", *stack_a);
+	ft_printf(1, "\n\n stack_b: %l", *stack_b);
 	// ft_lstclear(&stack_a);
 }
 
