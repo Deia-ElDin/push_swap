@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pfarr.c                                         :+:      :+:    :+:   */
+/*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 22:02:49 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 05:30:15 by dehamad          ###   ########.fr       */
+/*   Created: 2024/03/18 03:23:51 by dehamad           #+#    #+#             */
+/*   Updated: 2024/03/18 05:08:24 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
+#include "push_swap.h"
 
-void	ft_pfarr(t_fmt *fmt)
+static int	is_sign(int c)
 {
-	char	**arr;
-	char	*str;
-	size_t	len;
-	int		index;
-
-	arr = va_arg(fmt->args, char **);
-	index = 0;
-	while (arr[index])
-	{
-		str = arr[index];
-		len = ft_strlen(str);
-		fmt->len += ft_strlen(arr[index]);
-		ft_putstr_fd(arr[index++], fmt->fd);
-		if (str[len - 1] != '\n')
-			ft_putchar_fd('\n', fmt->fd);
-	}
+	return (c == '-' || c == '+');
 }
+
+static int	is_notnull(char *av, int i)
+{
+	return (av[i] && av[i + 1]);
+}
+
+int	is_multi_signs(char *av, int i)
+{
+	return (is_notnull(av, i) && is_sign(av[i]) && is_sign(av[i + 1]));
+}
+
+int	is_sign_afterwords(char *av, int i)
+{
+	return (is_notnull(av, i) && ft_isdigit(av[i]) && is_sign(av[i + 1]));
+}
+

@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:29:27 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/17 21:29:10 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 05:22:44 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,16 @@ typedef struct s_stack
 }	t_stack;
 
 // Parsing
-size_t	get_avs_total_length(const char **av);
-char	*build_final_str(int ac, const char **av, size_t len);
+bool	parsing(int ac, char **av);
+
+// Parsing Utils
+int		is_multi_signs(char *av, int i);
+int		is_sign_afterwords(char *av, int i);
+
+// Utils
+void	avs_iter(char **av, void (*f)(char*));
+char	*avs_map(int ac, char **av, char **avs_str);
+void	exit_error(void);
 
 #endif
 

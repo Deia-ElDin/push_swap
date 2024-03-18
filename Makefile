@@ -6,7 +6,7 @@
 #    By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 19:07:04 by dehamad           #+#    #+#              #
-#    Updated: 2024/03/17 20:43:13 by dehamad          ###   ########.fr        #
+#    Updated: 2024/03/18 03:57:34 by dehamad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 AR = ar
 
 LIBFT = libft/libft.a
-SRCS = main.c parsing_utils.c
+SRCS = main.c utils.c parsing.c parsing_utils.c
 BNS = main.c
 OBJS = $(SRCS:.c=.o)
 BNS_OBJS = $(BNS:.c=.o)

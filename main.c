@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:27:56 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/17 23:03:02 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 04:20:03 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	main(int ac, char **av)
 {
-	bool	is_valid_av;
-
+	bool	is_valid;
 
 	if (ac <= 1)
 		return (0);
-	is_valid_av = parsing(ac, av);
-	printf("is_valid_av: %d\n", is_valid_av);
+	av++;
+	is_valid = parsing(ac, av);
+	printf("is_valid: %d\n", is_valid);
 	return (0);
 }
 

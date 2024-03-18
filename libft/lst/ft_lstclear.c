@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 03:33:15 by dehamad           #+#    #+#             */
-/*   Updated: 2023/12/26 12:18:47 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 05:41:47 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		ft_lstdelone(current_node, del);
 		current_node = next_node;
 	}
+	ft_lstdelone(lst, del);
 	*lst = NULL;
 }
 
