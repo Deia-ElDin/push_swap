@@ -6,7 +6,7 @@
 #    By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 19:07:04 by dehamad           #+#    #+#              #
-#    Updated: 2024/03/18 03:57:34 by dehamad          ###   ########.fr        #
+#    Updated: 2024/03/18 08:45:26 by dehamad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,10 @@ all: $(NAME)
 
 $(NAME): $(OBJS) 
 	make -C libft
-	${CC} ${CFLAGS} ${LIBFT} ${OBJS} -o ${NAME}
+	${CC} ${CFLAGS} ${OBJS} ${LIBFT} -o ${NAME}
 
 bonus: ${BNS_OBJS}
 	make -C libft
-	make -C mlx
 	${CC} ${CFLAGS} ${LIBFT} ${BNS_OBJS} -o ${NAME}_bonus
 
 clean:

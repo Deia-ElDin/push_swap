@@ -6,13 +6,13 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:49:47 by dehamad           #+#    #+#             */
-/*   Updated: 2023/12/26 12:19:00 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 06:29:38 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content, int index)
 {
 	t_list	*new_node;
 
@@ -20,7 +20,9 @@ t_list	*ft_lstnew(void *content)
 	if (!new_node)
 		return (NULL);
 	new_node->content = content;
+	new_node->index = index;
 	new_node->next = NULL;
+	new_node->prev = NULL;
 	return (new_node);
 }
 

@@ -6,17 +6,16 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 03:21:16 by dehamad           #+#    #+#             */
-/*   Updated: 2023/12/26 12:18:49 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 06:38:57 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst)
 {
-	if (!lst || !del)
+	if (!lst)
 		return ;
-	del(lst->content);
 	free(lst);
 }
 

@@ -6,11 +6,12 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:27:56 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 04:20:03 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 10:46:12 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 int	main(int ac, char **av)
 {
@@ -20,7 +21,6 @@ int	main(int ac, char **av)
 		return (0);
 	av++;
 	is_valid = parsing(ac, av);
-	printf("is_valid: %d\n", is_valid);
 	return (0);
 }
 
@@ -105,4 +105,4 @@ int	main(int ac, char **av)
 
 
 //  "+1 -2 45 54" "5                 3" "8"
-// "1 2 3" "45 6"
+// 	"1 2 3" "45 6"

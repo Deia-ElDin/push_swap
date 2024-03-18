@@ -6,13 +6,11 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:22:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 05:37:14 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 10:44:19 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
 
 static void	is_empty(char *av)
 {
@@ -33,11 +31,9 @@ static void	is_empty(char *av)
 
 static void	is_invalid_char(char *av)
 {
-	size_t	len;
-	size_t	i;
-	int		sign;
+	int	i;
+	int	sign;
 
-	len = ft_strlen(av) - 1;
 	i = 0;
 	while (av[i])
 	{
@@ -57,100 +53,65 @@ static void	is_invalid_char(char *av)
 	}
 }
 
+static void	is_int(char *av)
+{
+	int		i;
+	int		j;
+	t_atoi	res;
+
+	i = 0;
+	j = 0;
+	while (av[i])
+	{
+		while (av[i] && av[i] == ' ')
+			i++;
+		j = i;
+		while (av[j] && av[j] != ' ')
+			j++; 
+		if (j > i)
+		{
+			res = ft_atoi(av + i);
+			if (res.error)
+				exit_error();
+		}
+		i = j;
+	}
+}
+
+// 2147483647, -2147483648
+
 bool	parsing(int ac, char **av)
 {
 	char	*avs_str;
 	char	**split;
-	t_list	*stack_a;
-	t_list	*stack_b;
-
+	// t_list	*stack_a;
+	// t_list	*stack_b;
 
 	avs_iter(av, is_empty);
 	avs_iter(av, is_invalid_char);
+	avs_iter(av, is_int);
 	avs_map(ac, av, &avs_str);
 	split = ft_split(avs_str, ' ');
-	printf("final_str => final: %s\n", avs_str);
+	ft_free(&avs_str, 'p');
 	ft_printf(1, "split: %a\n", split);
+	// is_int(split);
+	// stack_a = NULL;
+	// ft_lstcreate(&stack_a, split);
+	// ft_free(&split, 'a');
+	// ft_printf(1, "stack_a: %l\n", stack_a);
+	// ft_lstclear(&stack_a);
 	return (true);
 }
-	// char	*final_str;
 
-// final_str = build_final_str(ac, (const char **)av);
-	// printf("final_str => final: %s\n", final_str);
+//  ./push_swap "-2147483648" "2147483647"
 
+/*
+	The main idea is to create a validation functions for each step of the 
+	parsing & pass it to avs_iter function to iterate over the avs.
 
-
-// int	is_multi_signs(char *str)
-// {
-// 	int	signs;
-
-// 	signs = 0;
-// 	while (*str)
-// 	{
-// 		if (ft_strchr("+-*/", *str))
-// 			signs++;
-// 		if (*str == '-' || *str == '+')
-// 			signs++;
-// 		str++;
-// 	}
-// }
-
-// bool	ft_isvalid_input(int index, char *str)
-// {
-// 	char	c;
-
-// 	c = str[index];
-// 	if (!index && str[index + 1])
-// 	{
-// 		if ((c == '-' || c == '+') && !ft_isdigit(str[index + 1]))
-// 			return (false);
-// 	}
-// 	return (ft_isspace(c) || ft_isdigit(c) || c == '-' || c == '+');
-// }
-
-// bool	is_valid_char(int letter)
-// {
-// 	char	*valid;
-
-// 	valid = " -+0123456789";
-// 	return (ft_strchr(valid, letter) != NULL);
-// }
-
-// bool	is_multi_signs(char *str)
-// {
-// 	int	plus;
-// 	int	minus;
-
-// 	plus = 0;
-// 	minus = 0;
-// 	while (*str)
-// 	{
-// 		if (ft_strchr("+-*/", *str))
-// 			signs++;
-// 		if (*str == '-' || *str == '+')
-// 			signs++;
-// 		str++;
-// 	}
-// 	return (signs > 1);
-// }
-
-// static void	is_valid_int(char *av)
-// {
-// 	int		i;
-// 	int		len;
-// 	char	*tmp;
-
-// 	i = 0;
-// 	len = 0;
-// 	tmp = av;
-// 	while (*tmp)
-// 	{
-// 		if (ft_isdigit(*tmp))
-// 			len++;
-// 		tmp++;
-// 	}
-// 	if (len > 10)
-// 		exit_error();
-// 	if (len == 10 && ft_strcmp(av, "2147483647") > 0)
-// 		exit_error();
-// }
+	static void	is_empty(char *av)
+		if (av[i] != ' ' && ++is_valid)
+			if any char is not a space, then it's valid
+		else
+			if we exit the while with !is_valid => exit_error();		
+*/

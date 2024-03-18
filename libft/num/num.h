@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 13:00:21 by dehamad           #+#    #+#             */
-/*   Updated: 2023/12/26 13:05:58 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 10:08:19 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,14 @@
 
 # include "../libft.h"
 
-int		ft_atoi(const char *str);
+typedef struct s_atoi
+{
+	long	nbr;
+	int		sign;
+	bool	error;
+}	t_atoi;
+
+t_atoi	ft_atoi(const char *str);
 char	*ft_itoa(int n);
 
 #endif

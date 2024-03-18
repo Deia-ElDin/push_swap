@@ -6,34 +6,37 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 21:58:06 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/17 17:22:38 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 10:45:31 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "num.h"
 
-int	ft_atoi(const char *str)
+t_atoi	ft_atoi(const char *str)
 {
-	int	nbr;
-	int	sign;
+	t_atoi	res;
 
-	nbr = 0;
-	sign = 0;
+	res.nbr = 0;
+	res.sign = 0;
+	res.error = false;
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
-	if ((*str == '-' && --sign) || (*str == '+' && ++sign))
+	if ((*str == '-' && --res.sign) || (*str == '+' && ++res.sign))
 		str++;
 	while (*str >= '0' && *str <= '9')
 	{
-		if (nbr < 0 && sign < 0)
-			return (0);
-		if (nbr < 0 && sign >= 0)
-			return (-1);
-		nbr = (nbr * 10) + (*str - '0');
+		if (res.nbr < 0 && res.sign < 0)
+			return (res.error = true, res.nbr = 0, res);
+		if (res.nbr < 0 && res.sign >= 0)
+			return (res.error = true, res.nbr = -1, res);
+		res.nbr = (res.nbr * 10) + (*str - '0');
+		if (res.nbr > INT_MAX && res.sign >= 0)
+			return (res.error = true, res.nbr = 0, res);
+		if (res.nbr * res.sign < INT_MIN && res.sign < 0)
+			return (res.error = true, res.nbr = 0, res);
 		str++;
 	}
-	if (sign)
-		return (nbr * sign);
-	else
-		return (nbr);
+	if (!res.nbr && res.sign)
+		return (res.error = true, res.nbr = 0, res);
+	return (res);
 }

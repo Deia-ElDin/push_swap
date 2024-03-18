@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is.h                                               :+:      :+:    :+:   */
+/*   ft_lstcreate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 12:05:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 10:34:43 by dehamad          ###   ########.fr       */
+/*   Created: 2024/03/18 06:46:44 by dehamad           #+#    #+#             */
+/*   Updated: 2024/03/18 09:51:10 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IS_H
-# define IS_H
+#include "lst.h"
 
-# include "../libft.h"
+void	ft_lstcreate(t_list **lst, char **split)
+{
+	int		index;
+	t_list	*new_node;
+	t_atoi	res;
 
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int	ft_isalnum(int c);
-int	ft_isascii(int c);
-int	ft_isprint(int c);
-int	ft_issep(char s, char c);
-int	ft_isspace(char c);
-
-#endif
+	index = 0;
+	while (split[index])
+	{
+		res = ft_atoi(split[index]);
+		new_node = ft_lstnew(res.nbr, index);
+		ft_lstadd_back(lst, new_node);
+		index++;
+	}
+}

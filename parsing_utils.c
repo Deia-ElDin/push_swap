@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 03:23:51 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 05:08:24 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 07:24:31 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,3 @@ int	is_sign_afterwords(char *av, int i)
 {
 	return (is_notnull(av, i) && ft_isdigit(av[i]) && is_sign(av[i + 1]));
 }
-

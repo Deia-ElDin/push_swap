@@ -6,27 +6,26 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 03:33:15 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 05:41:47 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 07:46:41 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_list **lst)
 {
 	t_list	*current_node;
 	t_list	*next_node;
 
-	if (!lst || !*lst || !del)
+	if (!lst || !*lst)
 		return ;
 	current_node = *lst;
 	while (current_node)
 	{
 		next_node = current_node->next;
-		ft_lstdelone(current_node, del);
+		ft_lstdelone(current_node);
 		current_node = next_node;
 	}
-	ft_lstdelone(lst, del);
 	*lst = NULL;
 }
 

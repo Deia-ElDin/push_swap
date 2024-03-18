@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is.h                                               :+:      :+:    :+:   */
+/*   ft_pflist.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 12:05:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 10:34:43 by dehamad          ###   ########.fr       */
+/*   Created: 2024/03/18 06:15:22 by dehamad           #+#    #+#             */
+/*   Updated: 2024/03/18 06:44:38 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IS_H
-# define IS_H
+#include "print.h"
 
-# include "../libft.h"
+void	ft_pflist(t_fmt *fmt)
+{
+	t_list	*lst;
 
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int	ft_isalnum(int c);
-int	ft_isascii(int c);
-int	ft_isprint(int c);
-int	ft_issep(char s, char c);
-int	ft_isspace(char c);
-
-#endif
+	lst = va_arg(fmt->args, t_list *);
+	while (lst)
+	{
+		ft_putnbr_fd(lst->content, fmt->fd);
+		lst = lst->next;
+		if (lst)
+			ft_putstr_fd(" -> ", fmt->fd);
+	}
+}

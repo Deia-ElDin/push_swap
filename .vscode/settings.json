@@ -3,6 +3,10 @@
     "push_swap.h": "c",
     "libft.h": "c",
     "stdio.h": "c",
-    "type_traits": "c"
+    "type_traits": "c",
+    "lst.h": "c",
+    "sstream": "c",
+    "locale": "c",
+    "__locale": "c"
   }
 }
