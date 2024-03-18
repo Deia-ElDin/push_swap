@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:22:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 10:44:19 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 10:59:09 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,12 +106,49 @@ bool	parsing(int ac, char **av)
 //  ./push_swap "-2147483648" "2147483647"
 
 /*
-	The main idea is to create a validation functions for each step of the 
-	parsing & pass it to avs_iter function to iterate over the avs.
+	*The main idea here is to go as far as possible in the parsing WITHOUT MALLOC
+	*The way we do it is by creating a validation functions for each step of the,
+	*parsing & pass it to avs_iter function to iterate over the avs.
 
-	static void	is_empty(char *av)
+	* static void	is_empty(char *av)
 		if (av[i] != ' ' && ++is_valid)
 			if any char is not a space, then it's valid
 		else
-			if we exit the while with !is_valid => exit_error();		
+			if we exit the while with !is_valid => exit_error();
+
+	* static void	is_invalid_char(char *av)
+		doest 2 things:
+			1- check if there's any char which is not among (0-9, ' ', '-', '+')
+			2- check if there's invalid sign case i.e (--, -+, 1-, -1-)
+
+		while (av[i])
+		{
+			if (av[i] && (is_multi_signs(av, i) || is_sign_afterwords(av, i)))
+				is_multi_signs i.e (--, -+)
+				is_sign_afterwords i.e (1-, -1-)
+			else if (av[i] == ' ' && sign > 0)
+				once we find a space we reset the sign to 0
+			i++;
+		}
+
+	* static void	is_int(char *av)
+		while (av[i] && av[i] == ' ')
+			as long as it's a whitespace, keep moving.
+
+		j = i;
+		after this while loop, either we are at the \0 or at the first 
+		digit of the first number, so we set the j = i, and we proceed with the j
+		for 2 reasons:
+			1- if j is different from i, then we have a number
+			2- we won't lose our start point which is av[i]
+
+		if (j > i)
+		{
+			res = ft_atoi(av + i);
+			if (res.error)
+				exit_error();
+		}
+
+		i = j;
+		at the end we set i to j, so we can continue from where we left off.
 */
