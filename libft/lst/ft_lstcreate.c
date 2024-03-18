@@ -6,13 +6,13 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 06:46:44 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 23:44:17 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 00:12:33 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-void	ft_lstcreate(t_list **lst, char **split)
+void	ft_lstcreate(t_list **lst, char **split, void (*f)())
 {
 	t_list	*new_node;
 	t_atoi	res;
@@ -30,7 +30,7 @@ void	ft_lstcreate(t_list **lst, char **split)
 			value = (int)res.nbr;
 		new_node = ft_lstnew(value, index);
 		if (!new_node)
-			exit_error();
+			f();
 		ft_lstadd_back(lst, new_node);
 		index++;
 	}

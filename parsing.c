@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:22:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 23:42:15 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 01:44:22 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,10 @@ static void	is_int(char *av)
 	}
 }
 
-
-void	parsing(char **av)
+void	parsing(char **av, t_list **stack_a, t_list **stack_b)
 {
 	char	*avs_str;
 	char	**split;
-	t_list	*stack_a;
-	// t_list	*stack_b;
 
 	avs_iter(av, is_empty);
 	avs_iter(av, is_invalid_char);
@@ -89,14 +86,15 @@ void	parsing(char **av)
 	avs_str = avs_map(av, ft_strjoin);
 	split = ft_split(avs_str, ' ');
 	ft_free(&avs_str, 'p');
-	stack_a = NULL;
-	ft_lstcreate(&stack_a, split);
-	// ft_lstiter(stack_a, is_dup);
-	// ft_free(&split, 'a');
+	ft_lstcreate(stack_a, split, exit_error);
+	ft_free(&split, 'a');
+	ft_lstiter(*stack_a, stack_is_duplicated);
+	if (ft_lstiter(*stack_a, stack_is_sorted))
+		exit_success(*stack_a, *stack_b);
+	(void)stack_b;
 	// ft_lstclear(&stack_a);
 }
 
-//  ./push_swap "-2147483648" "2147483647"
 
 /*
 	*The main idea here is to go as far as possible in the parsing WITHOUT MALLOC

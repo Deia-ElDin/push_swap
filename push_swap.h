@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:29:27 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 23:42:04 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 01:43:58 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 # include "libft/libft.h"
 
-typedef struct s_stack
+typedef struct s_stacks
 {
-	int	*stack;
-	int	size;
-}	t_stack;
+	t_list	*stack_a;
+	t_list	*stack_b;
+}	t_stacks;
 
 // Parsing
-void	parsing(char **av);
+void	parsing(char **av, t_list **stack_a, t_list **stack_b);
 
 // Sign Parsing Utils
 int		is_multi_signs(char *av, int i);
@@ -30,7 +30,8 @@ int		is_sign_after_digit(char *av, int i);
 int		is_invalid_after_sign(char *av, int i);
 
 // Stack Validation Utils
-void	stack_is_duplicated(int value, t_list *next_node);
+bool	stack_is_duplicated(int value, t_list *next_node);
+bool	stack_is_sorted(int value, t_list *next_node);
 
 // Utils
 void	avs_iter(char **av, void (*f)(char*));
@@ -38,6 +39,7 @@ void	avs_iter(char **av, void (*f)(char*));
 // char	*avs_map(int ac, char **av, char **avs_str);
 char	*avs_map(char **av, char *(*f)(const char*, const char*));
 void	exit_error(void);
+void	exit_success(t_list *stack_a, t_list *stack_b);
 
 #endif
 

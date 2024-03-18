@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:31:58 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 23:33:28 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 01:43:35 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,29 @@ char	*avs_map(char **av, char *(*f)(const char*, const char*))
 	return ((char *)avs_str);
 }
 
+void	free_stacks(t_list *stack_a, t_list *stack_b)
+{
+	if (stack_a)
+		ft_lstclear(&stack_a);
+	if (stack_b)
+		ft_lstclear(&stack_b);
+}
+
 void	exit_error(void)
 {
 	ft_printf(2, "%s", "Error\n");
 	exit(EXIT_FAILURE);
 }
 
+void	exit_success(t_list *stack_a, t_list *stack_b)
+{
+	if (stack_a)
+		ft_lstclear(&stack_a);
+	if (stack_b)
+		ft_lstclear(&stack_b);
+	ft_printf(1, "%s", "OK\n");
+	exit(EXIT_SUCCESS);
+}
 
 // char	*avs_map(int ac, char **av, char **avs_str)
 // {
