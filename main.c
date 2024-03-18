@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:27:56 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 12:03:18 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 23:10:01 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int	main(int ac, char **av)
 	if (ac <= 1)
 		return (0);
 	av++;
-	is_valid = parsing(ac, av);
+	is_valid = parsing(av);
 	return (0);
 }

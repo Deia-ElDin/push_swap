@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:31:58 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 05:23:31 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 23:33:28 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,27 @@ void	avs_iter(char **av, void (*f)(char*))
 		f(av[i++]);
 }
 
-char	*avs_map(int ac, char **av, char **avs_str)
+char	*avs_map(char **av, char *(*f)(const char*, const char*))
 {
-	size_t	len;
-	char	*tmp;
+	const char	*avs_str;
+	const char	*tmp;
 
-	len = 0;
-	while (*av)
-		len += ft_strlen(*av++);
-	av -= (ac - 1);
-	*avs_str = (char *)ft_calloc(ac + len - 1, sizeof(char));
-	if (!*avs_str)
-		return (exit_error(), NULL);
-	tmp = *avs_str;
+	avs_str = NULL;
+	tmp = NULL;
 	while (*av)
 	{
-		len = ft_strlen(*av);
-		ft_strlcpy(tmp, *av, len + 1);
-		tmp += len;
-		if (!*(av + 1))
-			break ;
-		*tmp = ' ';
-		tmp++;
+		tmp = f(avs_str, *av);
+		if (!tmp)
+			exit_error();
+		ft_free(&avs_str, 'p');
+		avs_str = f(tmp, " ");
+		if (!avs_str)
+			exit_error();
+		ft_free(&tmp, 'p');
 		av++;
 	}
-	return (*avs_str);
+	return ((char *)avs_str);
 }
-
 
 void	exit_error(void)
 {
@@ -55,3 +49,30 @@ void	exit_error(void)
 	exit(EXIT_FAILURE);
 }
 
+
+// char	*avs_map(int ac, char **av, char **avs_str)
+// {
+// 	size_t	len;
+// 	char	*tmp;
+
+// 	len = 0;
+// 	while (*av)
+// 		len += ft_strlen(*av++);
+// 	av -= (ac - 1);
+// 	*avs_str = (char *)ft_calloc(ac + len - 1, sizeof(char));
+// 	if (!*avs_str)
+// 		return (exit_error(), NULL);
+// 	tmp = *avs_str;
+// 	while (*av)
+// 	{
+// 		len = ft_strlen(*av);
+// 		ft_strlcpy(tmp, *av, len + 1);
+// 		tmp += len;
+// 		if (!*(av + 1))
+// 			break ;
+// 		*tmp = ' ';
+// 		tmp++;
+// 		av++;
+// 	}
+// 	return (*avs_str);
+// }

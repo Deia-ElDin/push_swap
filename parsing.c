@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:22:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 12:26:33 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 23:42:15 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,14 @@ static void	is_invalid_char(char *av)
 	int	sign;
 
 	i = 0;
+	sign = 0;
 	while (av[i])
 	{
 		if (!ft_isdigit(av[i]) && av[i] != ' ' && av[i] != '-' && av[i] != '+')
 			exit_error();
-		i++;
-	}
-	i = 0;
-	sign = 0;
-	while (av[i])
-	{
-		if (av[i] && (is_multi_signs(av, i) || is_sign_afterwords(av, i)))
+		if (is_multi_signs(av, i)
+			|| is_sign_after_digit(av, i)
+			|| is_invalid_after_sign(av, i))
 			exit_error();
 		else if (av[i] == ' ' && sign > 0)
 			sign = 0;
@@ -71,9 +68,6 @@ static void	is_int(char *av)
 		if (j > i)
 		{
 			res = ft_atoi(av + i);
-			printf("res.nbr: %ld\n", res.nbr);
-			printf("res.sign: %d\n", res.sign);
-			printf("res.error: %d\n", res.error);
 			if (res.error)
 				exit_error();
 		}
@@ -81,18 +75,8 @@ static void	is_int(char *av)
 	}
 }
 
-static void	is_dup(int value, t_list *next_node)
-{
-	if (!next_node)
-		return ;
-	if (value == next_node->content)
-		exit_error();
-	if (next_node->next)
-		is_dup(value, next_node->next);
-}
 
-
-bool	parsing(int ac, char **av)
+void	parsing(char **av)
 {
 	char	*avs_str;
 	char	**split;
@@ -102,15 +86,14 @@ bool	parsing(int ac, char **av)
 	avs_iter(av, is_empty);
 	avs_iter(av, is_invalid_char);
 	avs_iter(av, is_int);
-	avs_map(ac, av, &avs_str);
+	avs_str = avs_map(av, ft_strjoin);
 	split = ft_split(avs_str, ' ');
 	ft_free(&avs_str, 'p');
 	stack_a = NULL;
 	ft_lstcreate(&stack_a, split);
-	ft_lstiter(stack_a, is_dup);
-	ft_free(&split, 'a');
-	ft_lstclear(&stack_a);
-	return (true);
+	// ft_lstiter(stack_a, is_dup);
+	// ft_free(&split, 'a');
+	// ft_lstclear(&stack_a);
 }
 
 //  ./push_swap "-2147483648" "2147483647"
@@ -133,9 +116,9 @@ bool	parsing(int ac, char **av)
 
 		while (av[i])
 		{
-			if (av[i] && (is_multi_signs(av, i) || is_sign_afterwords(av, i)))
+			if (av[i] && (is_multi_signs(av, i) || is_sign_after_digit(av, i)))
 				is_multi_signs i.e (--, -+)
-				is_sign_afterwords i.e (1-, -1-)
+				is_sign_after_digit i.e (1-, -1-)
 			else if (av[i] == ' ' && sign > 0)
 				once we find a space we reset the sign to 0
 			i++;

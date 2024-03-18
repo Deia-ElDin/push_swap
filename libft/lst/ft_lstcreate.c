@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 06:46:44 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 12:19:28 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/18 23:44:17 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstcreate(t_list **lst, char **split)
 {
-	int		index;
 	t_list	*new_node;
 	t_atoi	res;
+	int		index;
 	int		value;
 
 	index = 0;
@@ -29,6 +29,8 @@ void	ft_lstcreate(t_list **lst, char **split)
 		else
 			value = (int)res.nbr;
 		new_node = ft_lstnew(value, index);
+		if (!new_node)
+			exit_error();
 		ft_lstadd_back(lst, new_node);
 		index++;
 	}

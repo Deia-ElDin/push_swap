@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_utils.c                                    :+:      :+:    :+:   */
+/*   stack_validation_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/18 03:23:51 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 07:24:31 by dehamad          ###   ########.fr       */
+/*   Created: 2024/03/18 23:27:53 by dehamad           #+#    #+#             */
+/*   Updated: 2024/03/18 23:42:01 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_sign(int c)
+static void	stack_is_duplicated(int value, t_list *next_node)
 {
-	return (c == '-' || c == '+');
-}
-
-static int	is_notnull(char *av, int i)
-{
-	return (av[i] && av[i + 1]);
-}
-
-int	is_multi_signs(char *av, int i)
-{
-	return (is_notnull(av, i) && is_sign(av[i]) && is_sign(av[i + 1]));
-}
-
-int	is_sign_afterwords(char *av, int i)
-{
-	return (is_notnull(av, i) && ft_isdigit(av[i]) && is_sign(av[i + 1]));
+	if (!next_node)
+		return ;
+	if (value == next_node->content)
+		exit_error();
+	if (next_node->next)
+		is_dup(value, next_node->next);
 }
