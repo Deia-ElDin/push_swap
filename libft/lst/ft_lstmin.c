@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstmin.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 15:27:56 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 10:00:18 by dehamad          ###   ########.fr       */
+/*   Created: 2024/03/19 08:02:37 by dehamad           #+#    #+#             */
+/*   Updated: 2024/03/19 08:03:32 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "lst.h"
 
-int	main(int ac, char **av)
+int	ft_lstmin(t_stack *stack)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	int	min;
 
-	if (ac <= 1)
-		return (0);
-	av++;
-	stack_a = NULL;
-	stack_b = NULL;
-	parsing(av, &stack_a);
-	sort(&stack_a, &stack_b);
-	return (0);
+	min = stack->content;
+	while (stack)
+	{
+		if (stack->content < min)
+			min = stack->content;
+		stack = stack->next;
+	}
+	return (min);
 }
-
-// make file -> clean & fclean
-
-// test this case ./push_swap "1 2 3 "" " ,  ./push_swap "1 2 3 ""1"

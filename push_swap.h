@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:29:27 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 04:58:35 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 10:12:10 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,28 @@
 # include "libft/libft.h"
 
 // Parsing
-void	parsing(char **av, t_stack **stack_a, t_stack **stack_b);
+void	parsing(char **av, t_stack **stack_a);
 
 // Sign Parsing Utils
 int		is_multi_signs(char *av, int i);
 int		is_sign_after_digit(char *av, int i);
 int		is_invalid_after_sign(char *av, int i);
 
+// Sort
+void	sort(t_stack **stack_a, t_stack **stack_b);
+
 // Stack Moves
-void	swap(t_stack **stack);
-void	swap_both(t_stack **stack_a, t_stack **stack_b);
-void	push(t_stack **from, t_stack **to);
-void	rotate(t_stack **stack);
-void	reverse_rotate(t_stack **stack);
-void	reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);
+void	sa(t_stack **stack_a);
+void	sb(t_stack **stack_b);
+void	ss(t_stack **stack_a, t_stack **stack_b);
+void	pa(t_stack **stack_b, t_stack **stack_a);
+void	pb(t_stack **stack_a, t_stack **stack_b);
+void	ra(t_stack **stack_a);
+void	rb(t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+void	rra(t_stack **stack_a);
+void	rrb(t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 // Stack Validation Utils
 bool	stack_is_duplicated(int value, t_stack *next_node);
@@ -38,11 +46,10 @@ bool	stack_is_sorted(int value, t_stack *next_node);
 // Utils
 void	avs_iter(char **av, void (*f)(char*));
 char	*avs_map(char **av, char *(*f)(const char*, const char*));
-void	exit_error(void);
+void	exit_error(t_stack *stack_a, t_stack *stack_b);
 void	exit_success(t_stack *stack_a, t_stack *stack_b);
 
 #endif
-
 
 // void	sort(t_stack *a, t_stack *b);
 // void	sort_three(t_stack *a);

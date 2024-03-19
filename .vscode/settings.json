@@ -9,6 +9,25 @@
     "locale": "c",
     "__locale": "c",
     "ios": "c",
-    "print.h": "c"
+    "print.h": "c",
+    "iterator": "c",
+    "utility": "c",
+    "memory": "c",
+    "algorithm": "c",
+    "__bit_reference": "c",
+    "__functional_base": "c",
+    "__node_handle": "c",
+    "bitset": "c",
+    "chrono": "c",
+    "__memory": "c",
+    "functional": "c",
+    "limits": "c",
+    "optional": "c",
+    "ratio": "c",
+    "system_error": "c",
+    "tuple": "c",
+    "vector": "c",
+    "__functional_03": "c",
+    "__mutex_base": "c"
   }
 }

@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:22:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 04:58:07 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 10:35:57 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	is_empty(char *av)
 		i++;
 	}
 	if (!is_valid)
-		exit_error();
+		exit_error(NULL, NULL);
 }
 
 static void	is_invalid_char(char *av)
@@ -39,11 +39,11 @@ static void	is_invalid_char(char *av)
 	while (av[i])
 	{
 		if (!ft_isdigit(av[i]) && av[i] != ' ' && av[i] != '-' && av[i] != '+')
-			exit_error();
+			exit_error(NULL, NULL);
 		if (is_multi_signs(av, i)
 			|| is_sign_after_digit(av, i)
 			|| is_invalid_after_sign(av, i))
-			exit_error();
+			exit_error(NULL, NULL);
 		else if (av[i] == ' ' && sign > 0)
 			sign = 0;
 		i++;
@@ -64,18 +64,18 @@ static void	is_int(char *av)
 			i++;
 		j = i;
 		while (av[j] && av[j] != ' ')
-			j++; 
+			j++;
 		if (j > i)
 		{
 			res = ft_atoi(av + i);
 			if (res.error)
-				exit_error();
+				exit_error(NULL, NULL);
 		}
 		i = j;
 	}
 }
 
-void	parsing(char **av, t_stack **stack_a, t_stack **stack_b)
+void	parsing(char **av, t_stack **stack_a)
 {
 	char	*avs_str;
 	char	**split;
@@ -87,17 +87,12 @@ void	parsing(char **av, t_stack **stack_a, t_stack **stack_b)
 	split = ft_split(avs_str, ' ');
 	ft_free(&avs_str, 'p');
 	ft_lstcreate(stack_a, split, exit_error);
-	ft_printf(1, "\n\n stack_a: %l", *stack_a);
 	ft_free(&split, 'a');
-	ft_lstiter(*stack_a, stack_is_duplicated);
-	if (ft_lstiter(*stack_a, stack_is_sorted))
-		exit_success(*stack_a, *stack_b);
-	(void)stack_b;
-	reverse_rotate(stack_a);
-	ft_printf(1, "\n\n stack_a: %l", *stack_a);
-	// ft_lstclear(&stack_a);
+	int res = ft_lstiter(*stack_a, stack_is_duplicated);
+	printf("\nres: %d\n", res);
+	if (!res)
+		exit_error(*stack_a, NULL);
 }
-
 
 /*
 	*The main idea here is to go as far as possible in the parsing WITHOUT MALLOC
@@ -108,7 +103,7 @@ void	parsing(char **av, t_stack **stack_a, t_stack **stack_b)
 		if (av[i] != ' ' && ++is_valid)
 			if any char is not a space, then it's valid
 		else
-			if we exit the while with !is_valid => exit_error();
+			if we exit the while with !is_valid => exit_error(NULL, NULL);
 
 	* static void	is_invalid_char(char *av)
 		doest 2 things:
@@ -141,7 +136,7 @@ void	parsing(char **av, t_stack **stack_a, t_stack **stack_b)
 			res = ft_atoi(av + i);
 				note that our atoi handles cases such as ( - ), ( + ), ( -+ )
 			if (res.error)
-				exit_error();
+				exit_error(NULL, NULL);
 		}
 
 		i = j;

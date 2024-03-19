@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:31:58 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 01:55:41 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 10:27:53 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,23 @@ char	*avs_map(char **av, char *(*f)(const char*, const char*))
 	{
 		tmp = f(avs_str, *av);
 		if (!tmp)
-			exit_error();
+			exit_error(NULL, NULL);
 		ft_free(&avs_str, 'p');
 		avs_str = f(tmp, " ");
 		if (!avs_str)
-			exit_error();
+			exit_error(NULL, NULL);
 		ft_free(&tmp, 'p');
 		av++;
 	}
 	return ((char *)avs_str);
 }
 
-void	exit_error(void)
+void	exit_error(t_stack *stack_a, t_stack *stack_b)
 {
+	if (stack_a)
+		ft_lstclear(&stack_a);
+	if (stack_b)
+		ft_lstclear(&stack_b);
 	ft_printf(2, "%s", "Error\n");
 	exit(EXIT_FAILURE);
 }
@@ -55,7 +59,6 @@ void	exit_success(t_stack *stack_a, t_stack *stack_b)
 		ft_lstclear(&stack_a);
 	if (stack_b)
 		ft_lstclear(&stack_b);
-	ft_printf(1, "%s", "OK\n");
 	exit(EXIT_SUCCESS);
 }
 
@@ -70,7 +73,7 @@ void	exit_success(t_stack *stack_a, t_stack *stack_b)
 // 	av -= (ac - 1);
 // 	*avs_str = (char *)ft_calloc(ac + len - 1, sizeof(char));
 // 	if (!*avs_str)
-// 		return (exit_error(), NULL);
+// 		return (exit_error(NULL, NULL), NULL);
 // 	tmp = *avs_str;
 // 	while (*av)
 // 	{
