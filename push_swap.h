@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:29:27 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 03:24:00 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 03:43:59 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		is_invalid_after_sign(char *av, int i);
 void	swap(t_stack **stack);
 void	swap_both(t_stack **stack_a, t_stack **stack_b);
 void	push(t_stack **from, t_stack **to);
+void	rotate(t_stack **stack);
 
 
 // Stack Validation Utils
@@ -41,7 +42,7 @@ void	exit_success(t_stack *stack_a, t_stack *stack_b);
 
 #endif
 
-// void	rotate(t_stack *stack);
+
 // void	reverse_rotate(t_stack *stack);
 // void	swap_both(t_stack *a, t_stack *b);
 // void	push_both(t_stack *a, t_stack *b);

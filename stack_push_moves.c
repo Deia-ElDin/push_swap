@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 01:52:20 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 03:31:25 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 04:42:03 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ void	push(t_stack **from, t_stack **to)
 			4) store the next node of from_top in from_top_next.
 			5) if (from_top_next)
 				if from_top_next exists, make its prev NULL.
-			6) *from = from_top_next;
-				- update the from (stack) ptr to point to from_top_next.
+
+			STACK PTR:
+				6) *from = from_top_next;
+					- update the from (stack) ptr to point to from_top_next.
 
 		TO STACK:
 			7) if (to_top)
@@ -72,8 +74,10 @@ void	push(t_stack **from, t_stack **to)
 			8) else if the to stack is empty:
 				- from_top->next = NULL;
 					the next of from_top will be NULL.
-			9) *to = from_top;
-				- regarding we have nodes at to (stack) or not,
-				we update the to (stack) ptr to point to from_top.
+			
+			STACK PTR:
+				9) *to = from_top;
+					- regarding we have nodes at to (stack) or not,
+					we update the to (stack) ptr to point to from_top.
 	}
 */

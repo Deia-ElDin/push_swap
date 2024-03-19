@@ -8,6 +8,7 @@
     "sstream": "c",
     "locale": "c",
     "__locale": "c",
-    "ios": "c"
+    "ios": "c",
+    "print.h": "c"
   }
 }

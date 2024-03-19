@@ -6,7 +6,7 @@
 #    By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 19:07:04 by dehamad           #+#    #+#              #
-#    Updated: 2024/03/19 03:25:56 by dehamad          ###   ########.fr        #
+#    Updated: 2024/03/19 03:52:42 by dehamad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ AR = ar
 
 LIBFT = libft/libft.a
 SRCS = main.c parsing.c utils.c sign_parsing_utils.c stack_validation_utils.c \
-	stack_swap_moves.c stack_push_moves.c
+	stack_swap_moves.c stack_push_moves.c stack_rotate_moves.c \
+	
 BNS = main.c
 OBJS = $(SRCS:.c=.o)
 BNS_OBJS = $(BNS:.c=.o)
