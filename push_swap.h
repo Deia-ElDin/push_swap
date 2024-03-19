@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:29:27 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 03:43:59 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/19 04:58:35 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	swap(t_stack **stack);
 void	swap_both(t_stack **stack_a, t_stack **stack_b);
 void	push(t_stack **from, t_stack **to);
 void	rotate(t_stack **stack);
-
+void	reverse_rotate(t_stack **stack);
+void	reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);
 
 // Stack Validation Utils
 bool	stack_is_duplicated(int value, t_stack *next_node);
@@ -43,11 +44,6 @@ void	exit_success(t_stack *stack_a, t_stack *stack_b);
 #endif
 
 
-// void	reverse_rotate(t_stack *stack);
-// void	swap_both(t_stack *a, t_stack *b);
-// void	push_both(t_stack *a, t_stack *b);
-// void	rotate_both(t_stack *a, t_stack *b);
-// void	reverse_rotate_both(t_stack *a, t_stack *b);
 // void	sort(t_stack *a, t_stack *b);
 // void	sort_three(t_stack *a);
 // void	sort_five(t_stack *a, t_stack *b);
