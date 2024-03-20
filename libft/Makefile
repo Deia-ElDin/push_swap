@@ -6,7 +6,7 @@
 #    By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/25 03:20:29 by dehamad           #+#    #+#              #
-#    Updated: 2024/03/19 08:19:49 by dehamad          ###   ########.fr        #
+#    Updated: 2024/03/20 21:39:36 by dehamad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ INIT_SRC = ft_bzero.c
 IS_X_SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 	ft_isprint.c ft_issep.c ft_isspace.c
 LEN_SRC = ft_intlen.c ft_strlen.c ft_ptrlen.c ft_uintlen_base.c 
-LST_SRC = ft_lstcreate.c ft_lstnew.c ft_lstsize.c ft_lstlast.c \
+LST_SRC = ft_lstnew.c ft_lstsize.c ft_lstlast.c \
 	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
-	ft_lstmap.c ft_lstmax.c ft_lstmin.c ft_lstnext.c
+	ft_lstmap.c ft_lstmax.c ft_lstmin.c ft_lstnext.c ft_lstpivot.c  
 MAL_SRC = ft_calloc.c ft_free.c
 MEM_SRC = ft_memset.c ft_memcpy.c ft_memmove.c ft_memchr.c \
 	ft_memcmp.c

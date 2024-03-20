@@ -28,6 +28,7 @@
     "tuple": "c",
     "vector": "c",
     "__functional_03": "c",
-    "__mutex_base": "c"
+    "__mutex_base": "c",
+    "atomic": "c"
   }
 }

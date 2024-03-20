@@ -6,20 +6,20 @@
 #    By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 19:07:04 by dehamad           #+#    #+#              #
-#    Updated: 2024/03/19 10:31:51 by dehamad          ###   ########.fr        #
+#    Updated: 2024/03/20 20:37:28 by dehamad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address
 AR = ar
 
 LIBFT = libft/libft.a
 SRCS = main.c parsing.c sort.c utils.c sign_parsing_utils.c \
-	stack_validation_utils.c stack_swap_moves.c stack_push_moves.c \
-	stack_rotate_moves.c stack_reverse_rotate_moves.c  \
+	stack_utils.c stack_swap.c stack_push.c \
+	stack_rotate.c stack_reverse_rotate.c  \
 	
 BNS = main.c
 OBJS = $(SRCS:.c=.o)

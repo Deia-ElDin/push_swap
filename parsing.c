@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:22:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 10:35:57 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/20 21:52:41 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,49 +50,16 @@ static void	is_invalid_char(char *av)
 	}
 }
 
-static void	is_int(char *av)
-{
-	int		i;
-	int		j;
-	t_atoi	res;
-
-	i = 0;
-	j = 0;
-	while (av[i])
-	{
-		while (av[i] && av[i] == ' ')
-			i++;
-		j = i;
-		while (av[j] && av[j] != ' ')
-			j++;
-		if (j > i)
-		{
-			res = ft_atoi(av + i);
-			if (res.error)
-				exit_error(NULL, NULL);
-		}
-		i = j;
-	}
-}
-
 void	parsing(char **av, t_stack **stack_a)
 {
-	char	*avs_str;
-	char	**split;
-
 	avs_iter(av, is_empty);
 	avs_iter(av, is_invalid_char);
-	avs_iter(av, is_int);
-	avs_str = avs_map(av, ft_strjoin);
-	split = ft_split(avs_str, ' ');
-	ft_free(&avs_str, 'p');
-	ft_lstcreate(stack_a, split, exit_error);
-	ft_free(&split, 'a');
-	int res = ft_lstiter(*stack_a, stack_is_duplicated);
-	printf("\nres: %d\n", res);
-	if (!res)
+	stack_map(stack_a, av, stack_create);
+	if (!ft_lstiter(*stack_a, stack_is_duplicated))
 		exit_error(*stack_a, NULL);
 }
+
+// 2147483647, -2147483648
 
 /*
 	*The main idea here is to go as far as possible in the parsing WITHOUT MALLOC

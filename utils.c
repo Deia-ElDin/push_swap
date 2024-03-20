@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:31:58 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 10:27:53 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/20 21:39:13 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,60 @@ void	avs_iter(char **av, void (*f)(char*))
 		f(av[i++]);
 }
 
-char	*avs_map(char **av, char *(*f)(const char*, const char*))
+void	stack_map(t_stack **stack, char **av, void (*f)(t_stack**, char*))
 {
-	const char	*avs_str;
-	const char	*tmp;
+	unsigned int	i;
 
-	avs_str = NULL;
-	tmp = NULL;
-	while (*av)
-	{
-		tmp = f(avs_str, *av);
-		if (!tmp)
-			exit_error(NULL, NULL);
-		ft_free(&avs_str, 'p');
-		avs_str = f(tmp, " ");
-		if (!avs_str)
-			exit_error(NULL, NULL);
-		ft_free(&tmp, 'p');
-		av++;
-	}
-	return ((char *)avs_str);
+	i = 0;
+	while (av[i])
+		f(stack, av[i++]);
 }
+
+// void	stack_iter(char **av, void (*f)(t_stack**, char*))
+// {
+// 	t_stack			*stack;
+// 	unsigned int	i;
+
+// 	i = 0;
+// 	while (av[i])
+// 		f(stack, av[i++]);
+// }
+
+// char	*avs_map(char **av, char *(*f)(const char*, const char*))
+// {
+// 	const char	*avs_str;
+// 	const char	*tmp;
+
+// 	avs_str = NULL;
+// 	tmp = NULL;
+// 	while (*av)
+// 	{
+// 		tmp = f(avs_str, *av);
+// 		if (!tmp)
+// 			exit_error(NULL, NULL);
+// 		ft_free(&avs_str, 'p');
+// 		avs_str = f(tmp, " ");
+// 		if (!avs_str)
+// 			exit_error(NULL, NULL);
+// 		ft_free(&tmp, 'p');
+// 		av++;
+// 	}
+// 	return ((char *)avs_str);
+// }
+
+// int	*get_pivot(int middle, t_stack *stack_a)
+// {
+// 	int	*array[500];
+// 	int	i;
+// 	int	pivot;
+
+// 	i = 0;
+// 	while (array[i] != middle)
+// 		i++;
+// 	pivot = array[i + 1];
+// 	free(array);
+// 	return (pivot);
+// }
 
 void	exit_error(t_stack *stack_a, t_stack *stack_b)
 {
@@ -60,6 +93,17 @@ void	exit_success(t_stack *stack_a, t_stack *stack_b)
 	if (stack_b)
 		ft_lstclear(&stack_b);
 	exit(EXIT_SUCCESS);
+}
+
+void	print_int_arr(int *arr)
+{
+	int	i;
+
+	i = -1;
+	while (++i < 100)
+		printf("%d ", arr[i]);
+
+	// printf("%d. = %d\n", i + 1, arr[i]);
 }
 
 // char	*avs_map(int ac, char **av, char **avs_str)
