@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:22:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/20 23:59:24 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/21 00:00:58 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	is_empty(char *av)
 
 static void	is_invalid_user_input(char *av)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (av[i])
@@ -54,7 +54,7 @@ void	parsing(char **av, t_stack **stack_a)
 
 /*
 	*The main idea here is to go as far as possible in the parsing WITHOUT MALLOC
-	*The way we do it is by creating a validation functions for each step of the,
+	*The way we do it is by creating a validation functions for each step of the
 	*parsing & pass it to avs_iter function to iterate over the avs.
 
 	* static void	is_empty(char *av)
