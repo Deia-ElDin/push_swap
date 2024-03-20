@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:22:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/20 23:58:42 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/20 23:59:24 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	is_empty(char *av)
 		exit_error(NULL, NULL);
 }
 
-static void	is_invalid_char(char *av)
+static void	is_invalid_user_input(char *av)
 {
 	int	i;
 
@@ -46,7 +46,7 @@ static void	is_invalid_char(char *av)
 void	parsing(char **av, t_stack **stack_a)
 {
 	avs_iter(av, is_empty);
-	avs_iter(av, is_invalid_char);
+	avs_iter(av, is_invalid_user_input);
 	stack_map(stack_a, av, stack_create);
 	if (!stack_iter(*stack_a, stack_is_duplicated))
 		exit_error(*stack_a, NULL);
