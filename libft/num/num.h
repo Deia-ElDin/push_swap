@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 13:00:21 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 10:08:19 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/21 00:43:33 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 typedef struct s_atoi
 {
 	long	nbr;
-	int		sign;
 	bool	error;
 }	t_atoi;
 

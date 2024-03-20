@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 12:05:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/20 23:23:13 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/21 00:21:39 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_isalnum(int c);
 int	ft_isascii(int c);
 int	ft_isprint(int c);
 int	ft_issep(char s, char c);
-int	ft_isspace(char c);
+int	ft_isspace(int c);
 int	ft_issign(int c);
 
 #endif
