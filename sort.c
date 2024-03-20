@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 05:55:31 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/20 20:00:16 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/20 22:04:18 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 {
 	int	size;
 
-	if (ft_lstiter(*stack_a, stack_is_sorted))
+	if (stack_iter(*stack_a, stack_is_sorted))
 		exit_success(*stack_a, *stack_b);
 	size = ft_lstsize(*stack_a);
 	if (size == 2 && ((*stack_a)->content > (*stack_a)->next->content))
@@ -76,7 +76,7 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 		sort_five(stack_a, stack_b);
 	else if (size <= 100)
 		sort_hundred(stack_a, stack_b);
-	if (ft_lstiter(*stack_a, stack_is_sorted))
+	if (stack_iter(*stack_a, stack_is_sorted))
 		exit_success(*stack_a, *stack_b);
 
 	// else

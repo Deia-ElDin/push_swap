@@ -6,7 +6,7 @@
 #    By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 19:07:04 by dehamad           #+#    #+#              #
-#    Updated: 2024/03/20 20:37:28 by dehamad          ###   ########.fr        #
+#    Updated: 2024/03/20 22:19:14 by dehamad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ $(LIBFT):
 	
 clean:
 	rm -f $(OBJS) ${BNS_OBJS}
-	# make -C libft clean
+	make -C libft clean
 
 fclean: clean
 	rm -f $(NAME) ${NAME}_bonus

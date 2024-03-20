@@ -6,11 +6,38 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:27:53 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/20 21:51:05 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/20 22:05:22 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	stack_map(t_stack **stack, char **av, void (*f)(t_stack**, char*))
+{
+	unsigned int	i;
+
+	i = 0;
+	while (av[i])
+		f(stack, av[i++]);
+}
+
+bool	stack_iter(t_stack *stack, bool (*f)(int, t_stack *))
+{
+	int		value;
+	bool	continue_iter;
+
+	if (!stack)
+		return (false);
+	while (stack)
+	{
+		value = stack->content;
+		stack = stack->next;
+		continue_iter = f(value, stack);
+		if (!continue_iter)
+			return (false);
+	}
+	return (true);
+}
 
 void	stack_create(t_stack **stack_a, char *av)
 {

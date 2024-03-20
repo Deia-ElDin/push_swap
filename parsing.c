@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:22:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/20 21:52:41 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/20 21:59:21 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	parsing(char **av, t_stack **stack_a)
 	avs_iter(av, is_empty);
 	avs_iter(av, is_invalid_char);
 	stack_map(stack_a, av, stack_create);
-	if (!ft_lstiter(*stack_a, stack_is_duplicated))
+	if (!stack_iter(*stack_a, stack_is_duplicated))
 		exit_error(*stack_a, NULL);
 }
 

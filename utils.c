@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:31:58 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/20 21:39:13 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/20 22:05:31 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,6 @@ void	avs_iter(char **av, void (*f)(char*))
 	i = 0;
 	while (av[i])
 		f(av[i++]);
-}
-
-void	stack_map(t_stack **stack, char **av, void (*f)(t_stack**, char*))
-{
-	unsigned int	i;
-
-	i = 0;
-	while (av[i])
-		f(stack, av[i++]);
 }
 
 // void	stack_iter(char **av, void (*f)(t_stack**, char*))

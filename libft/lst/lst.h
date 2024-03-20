@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 12:09:34 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/20 21:39:41 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/20 22:00:09 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ t_stack	*ft_lstpivot(t_stack *stack);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	ft_lstdelone(t_stack *lst);
 void	ft_lstclear(t_stack **lst);
-
-bool	ft_lstiter(t_stack *lst, bool (*f)(int, t_stack *));
 
 int		ft_lstmax(t_stack *stack);
 int		ft_lstsize(t_stack *lst);
