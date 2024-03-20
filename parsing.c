@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:22:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/20 23:07:27 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/20 23:55:33 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 static void	is_empty(char *av)
 {
-	int	is_valid;
 	int	i;
+	int	is_valid;
 
-	i = 0;
+	i = -1;
 	is_valid = 0;
-	while (av[i])
-	{
+	while (av[++i])
 		if (av[i] != ' ' && ++is_valid)
 			break ;
-		i++;
-	}
 	if (!is_valid)
 		exit_error(NULL, NULL);
 }
@@ -32,20 +29,16 @@ static void	is_empty(char *av)
 static void	is_invalid_char(char *av)
 {
 	int	i;
-	int	sign;
 
 	i = 0;
-	sign = 0;
 	while (av[i])
 	{
-		if (!ft_isdigit(av[i]) && av[i] != ' ' && av[i] != '-' && av[i] != '+')
+		if (!(av[i] == ' ' || ft_issign(av[i]) || ft_isdigit(av[i])))
 			exit_error(NULL, NULL);
-		if (is_multi_signs(av, i)
-			|| is_sign_after_digit(av, i)
-			|| is_invalid_after_sign(av, i))
+		if (ft_issign(av[i]) && !ft_isdigit(av[i + 1]))
 			exit_error(NULL, NULL);
-		else if (av[i] == ' ' && sign > 0)
-			sign = 0;
+		if (ft_isdigit(av[i]) && ft_issign(av[i + 1]))
+			exit_error(NULL, NULL);
 		i++;
 	}
 }

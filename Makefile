@@ -6,7 +6,7 @@
 #    By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 19:07:04 by dehamad           #+#    #+#              #
-#    Updated: 2024/03/20 22:19:55 by dehamad          ###   ########.fr        #
+#    Updated: 2024/03/20 23:54:00 by dehamad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 AR = ar
 
 LIBFT = libft/libft.a
-SRCS = main.c parsing.c sort.c utils.c sign_parsing_utils.c \
+SRCS = main.c parsing.c sort.c utils.c \
 	stack_utils.c stack_swap.c stack_push.c \
 	stack_rotate.c stack_reverse_rotate.c  \
 	
