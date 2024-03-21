@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   math.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 05:11:35 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/21 02:02:35 by dehamad          ###   ########.fr       */
+/*   Created: 2024/03/21 05:11:08 by dehamad           #+#    #+#             */
+/*   Updated: 2024/03/21 05:13:51 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#ifndef MATH_H
+# define MATH_H
 
-t_stack	*ft_lstmap(t_stack *lst, int *(*f)(int))
-{
-	t_stack	*new_lst;
-	t_stack	*new_node;
+int	ft_abs(int nbr);
 
-	if (!lst || !f)
-		return (NULL);
-	new_lst = NULL;
-	while (lst)
-	{
-		new_node = ft_lstnew(lst->content);
-		if (!new_node)
-		{
-			ft_lstclear(&new_lst);
-			return (NULL);
-		}
-		ft_lstadd_back(&new_lst, new_node);
-		lst = lst->next;
-	}
-	return (new_lst);
-}
+#endif

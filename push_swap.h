@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:29:27 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/20 22:05:50 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/21 07:18:30 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,15 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	stack_map(t_stack **stack, char **av, void (*f)(t_stack**, char*));
 bool	stack_iter(t_stack *stack, bool (*f)(int, t_stack *));
 void	stack_create(t_stack **stack_a, char *av);
-bool	stack_is_duplicated(int value, t_stack *next_node);
+bool	stack_is_not_duplicated(int value, t_stack *next_node);
 bool	stack_is_sorted(int value, t_stack *next_node);
+bool	stack_is_chunk(int value, t_stack *next_node);
 
 // Utils
 void	avs_iter(char **av, void (*f)(char*));
 void	exit_error(t_stack *stack_a, t_stack *stack_b);
 void	exit_success(t_stack *stack_a, t_stack *stack_b);
-void	print_int_arr(int *arr);
+void	print_int_arr(int *arr, int len);
 
 #endif
 

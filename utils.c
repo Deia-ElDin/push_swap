@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:31:58 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/20 22:05:31 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/21 01:52:12 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,15 +86,13 @@ void	exit_success(t_stack *stack_a, t_stack *stack_b)
 	exit(EXIT_SUCCESS);
 }
 
-void	print_int_arr(int *arr)
+void	print_int_arr(int *arr, int len)
 {
 	int	i;
 
 	i = -1;
-	while (++i < 100)
-		printf("%d ", arr[i]);
-
-	// printf("%d. = %d\n", i + 1, arr[i]);
+	while (++i < len)
+		printf("i = %d, value = %d\n", i, arr[i]);
 }
 
 // char	*avs_map(int ac, char **av, char **avs_str)

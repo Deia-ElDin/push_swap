@@ -6,13 +6,13 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:49:47 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/20 20:17:15 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/21 07:14:01 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-t_stack	*ft_lstnew(int content, int index)
+t_stack	*ft_lstnew(int content)
 {
 	t_stack	*new_node;
 
@@ -20,7 +20,9 @@ t_stack	*ft_lstnew(int content, int index)
 	if (!new_node)
 		return (NULL);
 	new_node->content = content;
-	new_node->index = index;
+	// new_node->index = 0;
+	new_node->moves = 0;
+	new_node->pivot = 0;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	return (new_node);

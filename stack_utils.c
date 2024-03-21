@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:27:53 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/21 00:46:34 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/21 07:58:53 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ void	stack_map(t_stack **stack, char **av, void (*f)(t_stack**, char*))
 
 bool	stack_iter(t_stack *stack, bool (*f)(int, t_stack *))
 {
-	int		value;
+	int		content;
 	bool	continue_iter;
 
 	if (!stack)
 		return (false);
 	while (stack)
 	{
-		value = stack->content;
+		content = stack->content;
 		stack = stack->next;
-		continue_iter = f(value, stack);
+		continue_iter = f(content, stack);
 		if (!continue_iter)
 			return (false);
 	}
@@ -53,7 +53,7 @@ void	stack_create(t_stack **stack_a, char *av)
 		res = ft_atoi(av + i);
 		if (res.error)
 			exit_error(*stack_a, NULL);
-		new_node = ft_lstnew(res.nbr, 0);
+		new_node = ft_lstnew(res.nbr);
 		if (!new_node)
 			exit_error(*stack_a, NULL);
 		ft_lstadd_back(stack_a, new_node);
@@ -62,22 +62,31 @@ void	stack_create(t_stack **stack_a, char *av)
 	}
 }
 
-bool	stack_is_duplicated(int value, t_stack *next_node)
+bool	stack_is_not_duplicated(int content, t_stack *next_node)
 {
 	if (!next_node)
 		return (true);
-	if (value == next_node->content)
+	if (content == next_node->content)
 		return (false);
-	return (stack_is_duplicated(value, next_node->next));
+	return (stack_is_not_duplicated(content, next_node->next));
 }
 
-bool	stack_is_sorted(int value, t_stack *next_node)
+bool	stack_is_sorted(int content, t_stack *next_node)
 {
 	if (!next_node)
 		return (true);
-	if (value > next_node->content)
+	if (content > next_node->content)
 		return (false);
 	return (true);
+}
+
+bool	stack_is_chunk(int content, t_stack *next_node)
+{
+	if (!next_node)
+		return (true);
+	if (content <= next_node->pivot)
+		return (false);
+	return (stack_is_chunk(next_node->content, next_node->next));
 }
 
 /*
@@ -90,10 +99,21 @@ bool	stack_is_sorted(int value, t_stack *next_node)
 	
 	* bool	stack_iter(t_stack *stack, bool (*f)(int, t_stack *))
 		if (!stack)
-			incase by mistake we passed a stack and it's empty or null
-			we don't want to return true, cuz if we do, most likely in our code
-			we will exit failure which in this case it's wrong.
+			- Incase by mistake we passed a stack and it's empty or null
+				we don't want to return true, cuz if we do, most likely in our 
+				code we will exit failure which in this case it's wrong.
 
+		if (!continue_iter)
+			return (false);
+			- If the function we passed to the stack_iter return false, 
+				this means our whatever condition we are checking is not met,
+				therefore we return false, and we act accordingly.
+				i.e stack_is_not_duplicated if there's a duplicate we return
+				false, so we stop the iteration and we return false, in our 
+				parsing we check:
+				if (!stack_iter(*stack_a, stack_is_not_duplicated))
+					exit_error(*stack_a, NULL);
+			
 	* void	stack_create(t_stack **stack_a, char *av)
 		while (av[i] && av[i] == ' ')
 			keep incrementing i until we reach a char that's not a space
@@ -101,4 +121,18 @@ bool	stack_is_sorted(int value, t_stack *next_node)
 		- We don't need to check here if the av is empty or not or 
 			any other validation cases, cuz at this point for sure we have
 			a valid av, so we proceed with out logic.
+
+	* bool	stack_is_not_duplicated(int content, t_stack *next_node)
+		if (!next_node)
+			return (true);
+			- If we reach the end of the stack, this means we didn't find
+				any duplicate, so we return true.
+
+		if (content == next_node->content)
+			return (false);
+			- If we found a duplicate, we return false,
+				so we stop the iteration and we return false, 
+				in our parsing we check:
+					if (!stack_iter(*stack_a, stack_is_not_duplicated))
+						exit_error(*stack_a, NULL);
 */

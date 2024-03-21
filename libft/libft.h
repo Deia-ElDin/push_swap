@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:34:17 by dehamad           #+#    #+#             */
-/*   Updated: 2024/02/03 11:35:19 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/21 05:14:18 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # include "len/len.h"
 # include "lst/lst.h"
 # include "mal/mal.h"
+# include "math/math.h"
 # include "mem/mem.h"
 # include "num/num.h"
 # include "print/print.h"

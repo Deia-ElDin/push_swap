@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:27:56 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/20 20:26:54 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/21 01:16:08 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	parsing(av, &stack_a);
-	// sort(&stack_a, &stack_b);
+	// ft_printf(1, "stack_a: %l\n", stack_a);
+	sort(&stack_a, &stack_b);
 	return (0);
 }
 
