@@ -6,17 +6,17 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 01:52:20 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 21:39:57 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/22 22:02:35 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_stack **from, t_stack **to)
+static void	push(t_list **from, t_list **to)
 {
-	t_stack	*from_top;
-	t_stack	*from_top_next;
-	t_stack	*to_top;
+	t_list	*from_top;
+	t_list	*from_top_next;
+	t_list	*to_top;
 
 	from_top = *from;
 	to_top = *to;
@@ -36,20 +36,20 @@ static void	push(t_stack **from, t_stack **to)
 	*to = from_top;
 }
 
-void	pa(t_stack **stack_b, t_stack **stack_a)
+void	pa(t_list **stack_b, t_list **stack_a)
 {
 	push(stack_b, stack_a);
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_stack **stack_a, t_stack **stack_b)
+void	pb(t_list **stack_a, t_list **stack_b)
 {
 	push(stack_a, stack_b);
 	write(1, "pb\n", 3);
 }
 
 /*
-	* void	push(t_stack **from, t_stack **to)
+	* void	push(t_list **from, t_list **to)
 	{
 		Notes:
 		1) we are taking double ptrs to stack, so we can modify 

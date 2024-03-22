@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstchunk.c                               :+:      :+:    :+:   */
+/*   ft_lstset_chunk.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,14 +12,15 @@
 
 #include "lst.h"
 
-void	ft_lstchunk(t_chunk *chunk, t_stack *stack, int pivot, int size)
+t_list	*ft_lstset_chunk(t_list *stack, int pivot, int size)
 {
+	t_list *ret;
 	int		cheapest;
 	int		index;
 
-	chunk->cheapest = NULL;
-	chunk->len = 0;
+	ret = NULL;
 	cheapest = size;
+	// cheapest = pivot;
 	index = 0;
 	while (stack)
 	{
@@ -33,13 +34,19 @@ void	ft_lstchunk(t_chunk *chunk, t_stack *stack, int pivot, int size)
 			if (ft_abs(stack->moves) < cheapest)
 			{
 				cheapest = ft_abs(stack->moves);
-				chunk->cheapest = stack;
+				ret = stack;
 			}
-			chunk->len++;
+			// if (stack->content <= cheapest)
+			// {
+			// 	cheapest = stack->content;
+			// 	ret = stack;
+			// }
+			// chunk->len++;
 		}
 		stack = stack->next;
 		index++;
-		if (!stack)
-			break ;
+		// if (!stack)
+		// 	break ;
 	}
+	return (ret);
 }

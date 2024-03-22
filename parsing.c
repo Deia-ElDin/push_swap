@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:22:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/21 05:37:41 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/22 23:35:20 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ static void	is_invalid_user_input(char *av)
 	}
 }
 
-void	parsing(char **av, t_stack **stack_a)
+void	parsing(char **av, t_stack *stack_a)
 {
 	avs_iter(av, is_empty);
 	avs_iter(av, is_invalid_user_input);
 	stack_map(stack_a, av, stack_create);
-	if (!stack_iter(*stack_a, stack_is_not_duplicated))
-		exit_error(*stack_a, NULL);
+	if (!stack_iter(stack_a, stack_is_not_duplicated))
+		exit_error(stack_a, NULL);
 }
 
 /*

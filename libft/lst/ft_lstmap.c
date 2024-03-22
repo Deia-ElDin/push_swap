@@ -6,16 +6,16 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 05:11:35 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/21 02:02:35 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/22 22:02:35 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-t_stack	*ft_lstmap(t_stack *lst, int *(*f)(int))
+t_list	*ft_lstmap(t_list *lst, int *(*f)(int))
 {
-	t_stack	*new_lst;
-	t_stack	*new_node;
+	t_list	*new_lst;
+	t_list	*new_node;
 
 	if (!lst || !f)
 		return (NULL);

@@ -6,13 +6,13 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:06:46 by dehamad           #+#    #+#             */
-/*   Updated: 2023/12/26 22:17:07 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/22 21:59:58 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "to.h"
 
-int	ft_toint(int intn, char charn)
+int	ft_toint(int int_nbtr, char char_nbr)
 {
-	return ((intn * 10) + (charn - '0'));
+	return ((int_nbtr * 10) + (char_nbr - '0'));
 }

@@ -6,13 +6,13 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 08:02:37 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 08:03:32 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/22 22:02:35 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-int	ft_lstmin(t_stack *stack)
+int	ft_lstmin(t_list *stack)
 {
 	int	min;
 

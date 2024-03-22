@@ -6,17 +6,17 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 02:02:45 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 21:40:05 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/22 22:02:35 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_stack **stack)
+static void	swap(t_list **stack)
 {
-	t_stack	*old_first;
-	t_stack	*new_first;
-	t_stack	*third_node;
+	t_list	*old_first;
+	t_list	*new_first;
+	t_list	*third_node;
 
 	old_first = *stack;
 	new_first = (*stack)->next;
@@ -32,19 +32,19 @@ static void	swap(t_stack **stack)
 	*stack = new_first;
 }
 
-void	sa(t_stack **stack_a)
+void	sa(t_list **stack_a)
 {
 	swap(stack_a);
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack **stack_b)
+void	sb(t_list **stack_b)
 {
 	swap(stack_b);
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack **stack_a, t_stack **stack_b)
+void	ss(t_list **stack_a, t_list **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
@@ -52,7 +52,7 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 }
 
 /*
-	* void	swap(t_stack **stack)
+	* void	swap(t_list **stack)
 	{
 		Notes:
 		1) we are taking a double ptrs to stack, so we can modify 

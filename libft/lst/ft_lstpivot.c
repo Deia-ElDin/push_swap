@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 20:06:11 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 21:32:56 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/22 22:02:35 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static int	ft_diff(int a, int b)
 	return (b - a);
 }
 
-t_stack	*ft_lstpivot(t_stack *stack)
+t_list	*ft_lstpivot(t_list *stack)
 {
-	t_stack	*pivot;
+	t_list	*pivot;
 	int		middle;
 	int		diff;
 	int		res;

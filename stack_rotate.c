@@ -6,17 +6,17 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 02:02:45 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/19 21:40:03 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/22 22:02:35 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_stack **stack)
+static void	rotate(t_list **stack)
 {
-	t_stack	*first_node;
-	t_stack	*second_node;
-	t_stack	*last_node;
+	t_list	*first_node;
+	t_list	*second_node;
+	t_list	*last_node;
 
 	first_node = *stack;
 	second_node = first_node->next;
@@ -30,26 +30,26 @@ static void	rotate(t_stack **stack)
 	*stack = second_node;
 }
 
-void	ra(t_stack **stack_a)
+void	ra(t_list **stack_a)
 {
 	rotate(stack_a);
 	write(1, "ra\n", 3);
 }
 
-void	rb(t_stack **stack_b)
+void	rb(t_list **stack_b)
 {
 	rotate(stack_b);
 	write(1, "rb\n", 3);
 }
 
-void	rr(t_stack **stack_a, t_stack **stack_b)
+void	rr(t_list **stack_a, t_list **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
 }
 
 /*
-	* void	rotate(t_stack **stack)
+	* void	rotate(t_list **stack)
 	{
 		Notes:
 		1) we are taking a double ptrs to stack, so we can modify 
@@ -93,7 +93,7 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 			- the stack will be the second_node.
 	}
 
-	* void	reverse_rotate(t_stack **stack)
+	* void	reverse_rotate(t_list **stack)
 	{
 		Notes:
 		1) we are taking a double ptrs to stack, so we can modify 
