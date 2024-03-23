@@ -6,7 +6,7 @@
 #    By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/25 03:20:29 by dehamad           #+#    #+#              #
-#    Updated: 2024/03/23 01:23:27 by dehamad          ###   ########.fr        #
+#    Updated: 2024/03/23 23:10:21 by dehamad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ AR = ar
 GET_SRC = ft_get_next_line.c
 INIT_SRC = ft_bzero.c
 IS_X_SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
-	ft_isprint.c ft_issep.c ft_isspace.c ft_issign.c
+	ft_isprint.c ft_issep.c ft_isspace.c ft_issign.c ft_ismaxthree.c
 LEN_SRC = ft_intlen.c ft_strlen.c ft_ptrlen.c ft_uintlen_base.c 
 LST_SRC = ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
-	ft_lstclear.c ft_lstmap.c ft_lstmax.c ft_lstmin.c ft_lstnode.c ft_lstpivot.c \
-	ft_lstset_chunk.c ft_lstpush_chunk.c
+	ft_lstclear.c ft_lstmax.c ft_lstmin.c ft_lsttarget.c ft_lstcheapest.c \
+	ft_lstget_node.c
 MAL_SRC = ft_calloc.c ft_free.c
 MATH_SRC = ft_abs.c
 MEM_SRC = ft_memset.c ft_memcpy.c ft_memmove.c ft_memchr.c \

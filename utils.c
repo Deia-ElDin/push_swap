@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:31:58 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/23 00:14:35 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/23 05:39:27 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ bool	stack_iter(t_stack *stack, bool (*f)(int, t_list *))
 	int		content;
 	bool	continue_iter;
 
-	if (!stack || !stack->head)
-		return (false);
 	lst = stack->head;
 	while (lst)
 	{
@@ -69,25 +67,16 @@ void	exit_success(t_stack *stack_a, t_stack *stack_b)
 	exit(EXIT_SUCCESS);
 }
 
-void	print_int_arr(int *arr, int len)
-{
-	int	i;
-
-	i = -1;
-	while (++i < len)
-		printf("i = %d, value = %d\n", i, arr[i]);
-}
-
 /*
-	* void	stack_map(t_list **stack, char **av, void (*f)(t_list**, char*))
+	* void	stack_map(t_stack *stack, char **av, void (*f)(t_stack*, char*))
 		- The purpose of this fn is to return a ptr just like strmapi, 
-			but instead of we return the ptr, we took a double ptr.
+			but instead of we return the ptr, we took a ptr to the stack.
 		- We are iterating over the avs and apply's (stack_create) to each av.
 		- We used this method instead of spliting then free,
 			then we will malloc any way for the stack.
 	
-	* bool	stack_iter(t_list *stack, bool (*f)(int, t_list *))
-		if (!stack)
+	* bool	stack_iter(t_stack *stack, bool (*f)(int, t_list *))
+		if (!stack->head)
 			- Incase by mistake we passed a stack and it's empty or null
 				we don't want to return true, cuz if we do, most likely in our 
 				code we will exit failure which in this case it's wrong.

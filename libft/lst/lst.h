@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 12:09:34 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/22 22:06:52 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/24 02:05:15 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ typedef struct s_list
 	int				content;
 	int				index;
 	int				moves;
-	int				pivot;
+	int				cheapest;
+	struct s_list	*target;
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;
@@ -33,17 +34,13 @@ typedef struct s_chunk
 
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(int content);
-t_list	*ft_lstset_chunk(t_list *stack, int pivot, int size);
+t_list	*ft_lstcheapest(t_list *list_a, t_list *list_b, int *max_three);
+t_list	*ft_lstget_node(t_list *list, int content);
 
-// t_list	*ft_lstmap(t_list *lst, int *(*f)(int));
-// t_list	*ft_lstnode(t_list *lst, int index);
-// t_list	*ft_lstpivot(t_list *stack);
-
-void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new, t_list *last);
 void	ft_lstdelone(t_list *lst);
 void	ft_lstclear(t_list **lst);
-void	ft_lstpush_chunk(t_list **from, t_list **to, t_list *node,
-			int pivot);
+void	ft_lsttarget(t_list *list_a, t_list *list_b, int *max_three);
 
 int		ft_lstmax(t_list *stack);
 int		ft_lstsize(t_list *lst);

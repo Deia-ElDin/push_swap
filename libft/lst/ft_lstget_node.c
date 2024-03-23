@@ -1,43 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpivot.c                                      :+:      :+:    :+:   */
+/*   ft_lstget_node.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/19 20:06:11 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/22 22:02:35 by dehamad          ###   ########.fr       */
+/*   Created: 2024/03/23 12:15:04 by dehamad           #+#    #+#             */
+/*   Updated: 2024/03/23 12:15:39 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-static int	ft_diff(int a, int b)
+t_list	*ft_lstget_node(t_list *list, int content)
 {
-	if (a > b)
-		return (a - b);
-	return (b - a);
-}
-
-t_list	*ft_lstpivot(t_list *stack)
-{
-	t_list	*pivot;
-	int		middle;
-	int		diff;
-	int		res;
-
-	middle = ft_lstmax(stack) / 2;
-	diff = ft_diff(stack->content, middle);
-	stack = stack->next;
-	while (stack)
+	while (list)
 	{
-		res = ft_diff(stack->content, middle);
-		if (res < diff)
-		{
-			diff = res;
-			pivot = stack;
-		}
-		stack = stack->next;
+		if (list->content == content)
+			return (list);
+		list = list->next;
 	}
-	return (pivot);
+	return (NULL);
 }

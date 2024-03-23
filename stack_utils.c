@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:27:53 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/23 01:40:31 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/23 11:53:50 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 void	stack_create(t_stack *stack_a, char *av)
 {
 	t_atoi	res;
-	t_list	*list;
 	t_list	*new_node;
 
-	list = NULL;
 	while (*av)
 	{
 		while (*av && ft_isspace(*av))
@@ -33,11 +31,12 @@ void	stack_create(t_stack *stack_a, char *av)
 			exit_error(stack_a, NULL);
 		if (!stack_a->head)
 			stack_a->head = new_node;
-		ft_lstadd_back(&list, new_node);
+		ft_lstadd_back(&(stack_a->head), new_node, stack_a->last);
+		stack_a->size++;
+		stack_a->last = new_node;
 		while (*av && !ft_isspace(*av))
 			av++;
 	}
-	stack_a->last = new_node;
 }
 
 bool	stack_is_not_duplicated(int content, t_list *next_node)
@@ -58,14 +57,14 @@ bool	stack_is_sorted(int content, t_list *next_node)
 	return (true);
 }
 
-bool	stack_is_chunk(int content, t_list *next_node)
-{
-	if (!next_node)
-		return (true);
-	if (content <= next_node->pivot)
-		return (false);
-	return (stack_is_chunk(next_node->content, next_node->next));
-}
+// bool	stack_is_chunk(int content, t_list *next_node)
+// {
+// 	if (!next_node)
+// 		return (true);
+// 	if (content <= next_node->pivot)
+// 		return (false);
+// 	return (stack_is_chunk(next_node->content, next_node->next));
+// }
 
 /*
 	* void	stack_create(t_stack *stack, char *av)

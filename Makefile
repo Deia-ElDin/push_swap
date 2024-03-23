@@ -6,7 +6,7 @@
 #    By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 19:07:04 by dehamad           #+#    #+#              #
-#    Updated: 2024/03/23 01:22:41 by dehamad          ###   ########.fr        #
+#    Updated: 2024/03/23 09:14:30 by dehamad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS =  -g3 -fsanitize=address
 AR = ar
 
 LIBFT = libft/libft.a
-SRCS = main.c parsing.c sort.c stack_utils.c utils.c \
+SRCS = main.c parsing.c sort.c stack_utils.c sort_utils.c utils.c \
 	stack_swap.c stack_push.c stack_rotate.c stack_reverse_rotate.c 
 	
 BNS = main.c

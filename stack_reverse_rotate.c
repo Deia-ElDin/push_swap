@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 02:02:45 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/23 04:27:03 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/23 21:37:36 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ static void	reverse_rotate(t_stack *stack)
 	last_node->prev = NULL;
 	last_node->next = first_node;
 	first_node->prev = last_node;
-	pre_last_node->next = NULL;
+	if (pre_last_node)
+		pre_last_node->next = NULL;
 	stack->head = last_node;
 	stack->last = pre_last_node;
 }

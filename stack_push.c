@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 01:52:20 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/23 04:33:22 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/23 07:37:43 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	push(t_stack *from, t_stack *to)
 	to->head = from_top;
 	if (!to->last)
 		to->last = from_top;
+	from->size--;
+	to->size++;
 }
 
 void	pa(t_stack *stack_b, t_stack *stack_a)

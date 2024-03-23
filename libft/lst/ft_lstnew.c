@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:49:47 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/22 22:26:03 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/23 19:48:47 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ t_list	*ft_lstnew(int content)
 	new_node->content = content;
 	new_node->index = 0;
 	new_node->moves = 0;
-	new_node->pivot = 0;
+	new_node->cheapest = 0;
+	new_node->target = NULL;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	return (new_node);
