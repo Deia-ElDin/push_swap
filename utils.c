@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:31:58 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/22 23:36:12 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/23 00:14:35 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,19 @@ bool	stack_iter(t_stack *stack, bool (*f)(int, t_list *))
 	while (lst)
 	{
 		content = lst->content;
-		lst = lst->next;
-		continue_iter = f(content, lst);
+		continue_iter = f(content, lst->next);
 		if (!continue_iter)
 			return (false);
+		lst = lst->next;
 	}
 	return (true);
 }
 
 void	exit_error(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a)
+	if (stack_a && stack_a->head)
 		ft_lstclear(&(stack_a->head));
-	if (stack_b)
+	if (stack_b && stack_b->head)
 		ft_lstclear(&(stack_b->head));
 	ft_printf(2, "%s", "Error\n");
 	exit(EXIT_FAILURE);
@@ -62,9 +62,9 @@ void	exit_error(t_stack *stack_a, t_stack *stack_b)
 
 void	exit_success(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a)
+	if (stack_a && stack_a->head)
 		ft_lstclear(&(stack_a->head));
-	if (stack_b)
+	if (stack_b && stack_b->head)
 		ft_lstclear(&(stack_b->head));
 	exit(EXIT_SUCCESS);
 }

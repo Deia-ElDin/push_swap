@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:27:53 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/22 23:34:13 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/23 01:40:31 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 void	stack_create(t_stack *stack_a, char *av)
 {
-	unsigned int	i;
-	t_atoi			res;
-	t_list			*list;
-	t_list			*new_node;
+	t_atoi	res;
+	t_list	*list;
+	t_list	*new_node;
 
-	i = 0;
 	list = NULL;
-	while (av[i])
+	while (*av)
 	{
-		while (av[i] && ft_isspace(av[i]))
-			i++;
-		res = ft_atoi(av + i);
+		while (*av && ft_isspace(*av))
+			av++;
+		if (!*av)
+			break ;
+		res = ft_atoi(av);
 		if (res.error)
-			exit_error(NULL, NULL);
+			exit_error(stack_a, NULL);
 		new_node = ft_lstnew(res.nbr);
 		if (!new_node)
-			exit_error(NULL, NULL);
+			exit_error(stack_a, NULL);
+		if (!stack_a->head)
+			stack_a->head = new_node;
 		ft_lstadd_back(&list, new_node);
-		while (av[i] && !ft_isspace(av[i]))
-			i++;
+		while (*av && !ft_isspace(*av))
+			av++;
 	}
-	stack_a->head = list;
-	stack_a->last = ft_lstlast(list);
-	ft_printf(1, "stack_a->head \n %l", stack_a->head);
+	stack_a->last = new_node;
 }
 
 bool	stack_is_not_duplicated(int content, t_list *next_node)
@@ -68,9 +68,9 @@ bool	stack_is_chunk(int content, t_list *next_node)
 }
 
 /*
-	* void	stack_create(t_list **stack_a, char *av)
-		while (av[i] && av[i] == ' ')
-			keep incrementing i until we reach a char that's not a space
+	* void	stack_create(t_stack *stack, char *av)
+		while (*av && *av == ' ')
+			keep incrementing the av until we reach a char that's not a space
 
 		- We don't need to check here if the av is empty or not or 
 			any other validation cases, cuz at this point for sure we have

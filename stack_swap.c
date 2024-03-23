@@ -6,45 +6,45 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 02:02:45 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/22 22:02:35 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/23 03:18:15 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_list **stack)
+static void	swap(t_stack *stack)
 {
-	t_list	*old_first;
-	t_list	*new_first;
+	t_list	*first_node;
+	t_list	*second_node;
 	t_list	*third_node;
 
-	old_first = *stack;
-	new_first = (*stack)->next;
-	third_node = old_first->next;
-	if (!stack || !old_first || !new_first)
+	if (!stack->head || !stack->head->next)
 		return ;
-	old_first->next = new_first->next;
-	old_first->prev = new_first;
-	new_first->next = old_first;
-	new_first->prev = NULL;
+	first_node = stack->head;
+	second_node = first_node->next;
+	third_node = second_node->next;
+	first_node->next = third_node;
+	second_node->next = first_node;
+	first_node->prev = second_node;
+	second_node->prev = NULL;
 	if (third_node)
-		third_node->prev = old_first;
-	*stack = new_first;
+		third_node->prev = first_node;
+	stack->head = second_node;
 }
 
-void	sa(t_list **stack_a)
+void	sa(t_stack *stack_a)
 {
 	swap(stack_a);
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_list **stack_b)
+void	sb(t_stack *stack_b)
 {
 	swap(stack_b);
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_list **stack_a, t_list **stack_b)
+void	ss(t_stack *stack_a, t_stack *stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
@@ -52,41 +52,56 @@ void	ss(t_list **stack_a, t_list **stack_b)
 }
 
 /*
-	* void	swap(t_list **stack)
+	* void	swap(t_list *stack)
 	{
-		Notes:
-		1) we are taking a double ptrs to stack, so we can modify 
-			the original stack inside the function, and that will
-			reflect outside.
-		2) old_first == first_node;
-		3) new_first == second_node;
+		NOTES:
+		1) first_node == first node in the stack.
+		2) second_node == second node which is the next of first_node.
+		3) third_node == third node which is the next of second_node.
+			- We need it incase we have it to we must update it's prev.
+			- Cuz it's prev at this point is the second_node.
+			- But after we swap, it's prev should be the first_node.
+		
+		STEPS:
+		1) if (!stack->head || !stack->head->next)
+			- If there's no head (empty stack),
+				or there's first node but there's no second node,
+				then there's nothing to swap, just return ;
 
-		Steps:
-		1) if (!stack || !old_first || !new_first)
-			if stack is empty or has only one node, return.
+		2) first_node = stack->head;
+		3) second_node = first_node->next;
+		4) third_node = second_node->next
+			- It will be either a node if we have 
+				or NULL if the second_node is the last node.
 
-		OLD_FIRST:
-			2) old_first->next = new_first->next;
-				- the next of old_first will be the next of new_first.
-			3) old_first->prev = new_first;
-				- the prev of old_first will be new_first.
-			
-		NEW_FIRST:
-			4) new_first->next = old_first;
-				- the next of new_first will be old_first.
-			5) new_first->prev = NULL;
-				- the prev of new_first will be NULL.
+		NOW WE SWAP:
+		We will update the next of each node:
+			4) first_node->next = third_node;
+				- The first node will go second right?
+				- So it's next will be the third_node.
+				- Incase we don't have a third node, then the next will be NULL.
+			5) second_node->next = first_node;
+				- The second node will go first right?
+				- So it's next will be the first_node.
+		
+		We will update the prev of each node:
+			6) first_node->prev = second_node;
+				- The first node is in the 2nd position right now right?.
+				- So it's prev will be the second_node 
+					(which is at the 1st position).
+			7) second_node->prev = NULL;
+				- The second node is now the at the 1st position right?.
+				- So it's prev will be NULL.
+		
+		we will update the prev of the third node if it exists:
+			8) if (third_node)
+				- If there is a third node, 
+					then it's prev should be the first_node right?.
+					third_node->prev = first_node
 
-		THIRD_NODE:
-		6) if (third_node)
-			if there is a third node, then:
-				- third_node->prev = old_first
-				- since the old_first is now the second node,
-				we update the prev of third_node to old_first.
-				and the next remain the same whatever it's.
-
-		STACK PTR:
-		7) *stack = new_first;
-			- update the stack to point to the new_first.
+		STACK HEAD PTR:
+		7) stack->head = second_node;
+			- update the stack to point to the second_node, 
+				which is at the 1st position.
 	}
 */

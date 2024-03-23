@@ -6,30 +6,38 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 05:55:31 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/22 22:21:43 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/23 01:24:27 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// static void	sort_three(t_list **stack_a)
+// static void	sort_two(t_stack *stack_a)
 // {
-// 	int	num1;
-// 	int	num2;
-// 	int	max;
-
-// 	num1 = (*stack_a)->content;
-// 	num2 = (*stack_a)->next->content;
-// 	max = ft_lstmax(*stack_a);
-// 	if (num1 == max)
-// 		ra(stack_a);
-// 	else if (num2 == max)
-// 		rra(stack_a);
-// 	if ((*stack_a)->content > (*stack_a)->next->content)
+// 	if (stack_a->head->content > stack_a->head->next->content)
 // 		sa(stack_a);
 // }
 
-// static void	sort_five(t_list **stack_a, t_list **stack_b)
+// static void	sort_three(t_stack *stack_a)
+// {
+// 	t_list	*head;
+// 	int		num1;
+// 	int		num2;
+// 	int		max;
+
+// 	head = stack_a->head;
+// 	num1 = stack_a->head->content;
+// 	num2 = stack_a->head->next->content;
+// 	max = ft_lstmax(stack_a->head);
+// 	if (num1 == max)
+// 		ra(&(stack_a->head));
+// 	else if (num2 == max)
+// 		rra(&(stack_a->head));
+// 	if (stack_a->head->content > stack_a->head->next->content)
+// 		sa(&(stack_a->head));
+// }
+
+// static void	sort_five(t_stack *stack_a, t_stack *stack_b)
 // {
 // 	t_list	*last_node;
 // 	int		min;
@@ -80,25 +88,26 @@
 // {
 // }
 
-void	sort(t_list **stack_a, t_list **stack_b)
-{
-	(void)stack_a;
-	(void)stack_b;
-	// int	size;
+// void	sort(t_stack *stack_a, t_stack *stack_b)
+// {
+// 	t_list	*head_a;
+// 	int		size;
 
-	// if (stack_iter(*stack_a, stack_is_sorted))
-	// 	exit_success(*stack_a, *stack_b);
-	// size = ft_lstsize(*stack_a);
-	// if (size == 2 && ((*stack_a)->content > (*stack_a)->next->content))
-	// 	sa(stack_a);
-	// else if (size == 3)
-	// 	sort_three(stack_a);
-	// else if (size <= 5)
-	// 	sort_five(stack_a, stack_b);
-	// // else if (size <= 100)
-	// // 	sort_hundred(stack_a, stack_b);
-	// if (stack_iter(*stack_a, stack_is_sorted))
-	// 	exit_success(*stack_a, *stack_b);
-}
+// 	(void)stack_b;
+// 	if (stack_iter(stack_a, stack_is_sorted))
+// 		exit_success(stack_a, stack_b);
+// 	head_a = stack_a->head;
+// 	size = ft_lstsize(head_a);
+// 	if (size == 2 && (head_a->content > head_a->next->content))
+// 		sa(&(head_a));
+// 	else if (size == 3)
+// 		sort_three(stack_a);
+// 	// else if (size <= 5)
+// 	// 	sort_five(stack_a, stack_b);
+// 	// // else if (size <= 100)
+// 	// // 	sort_hundred(stack_a, stack_b);
+// 	// if (stack_iter(*stack_a, stack_is_sorted))
+// 	// 	exit_success(*stack_a, *stack_b);
+// }
 
 // ./push_swap 35 50 11 49 36 100 78 34 88 56 15 24 84 40 13 69 66 74 53 79 5 23 61 75 96 17 39 48 97 70 55 62 3 57 86 99 98 92 65 47 94 8 14 76 42 6 2 89 27 38 4 95 91 58 44 80 18 12 52 16 32 67 68 83 30 19 71 63 59 72 77 46 9 81 7 28 90 60 25 64 85 54 51 73 21 22 43 1 82 93 87 29 37 33 20 31 41 45 26 10

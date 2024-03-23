@@ -6,14 +6,15 @@
 #    By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 19:07:04 by dehamad           #+#    #+#              #
-#    Updated: 2024/03/21 00:02:26 by dehamad          ###   ########.fr        #
+#    Updated: 2024/03/23 01:22:41 by dehamad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+# CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS =  -g3 -fsanitize=address
 AR = ar
 
 LIBFT = libft/libft.a
