@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:27:53 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/23 11:53:50 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/24 05:26:45 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,6 @@ bool	stack_is_sorted(int content, t_list *next_node)
 		return (false);
 	return (true);
 }
-
-// bool	stack_is_chunk(int content, t_list *next_node)
-// {
-// 	if (!next_node)
-// 		return (true);
-// 	if (content <= next_node->pivot)
-// 		return (false);
-// 	return (stack_is_chunk(next_node->content, next_node->next));
-// }
 
 /*
 	* void	stack_create(t_stack *stack, char *av)

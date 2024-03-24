@@ -6,11 +6,18 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:27:56 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/23 19:53:30 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/24 04:33:10 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static	void	init_stack(t_stack *stack)
+{
+	stack->head = NULL;
+	stack->last = NULL;
+	stack->size = 0;
+}
 
 int	main(int ac, char **av)
 {
@@ -20,12 +27,8 @@ int	main(int ac, char **av)
 	if (ac <= 1)
 		return (0);
 	av++;
-	stack_a.head = NULL;
-	stack_a.last = NULL;
-	stack_a.size = 0;
-	stack_b.head = NULL;
-	stack_b.last = NULL;
-	stack_a.size = 0;
+	init_stack(&stack_a);
+	init_stack(&stack_b);
 	parsing(av, &stack_a);
 	sort(&stack_a, &stack_b);
 	return (0);

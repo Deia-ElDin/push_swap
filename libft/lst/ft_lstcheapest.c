@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 11:14:46 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/24 02:18:44 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/24 03:52:40 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static	void	ft_list_moves(t_list *list, int size)
 	}
 }
 
-static int	ft_get_moves(t_list *list, int a_target)
+static int	ft_get_target_moves(t_list *list, int a_target)
 {
 	while (list)
 	{
@@ -44,49 +44,6 @@ static int	ft_get_moves(t_list *list, int a_target)
 	}
 	return (0);
 }
-
-// static	t_list	*ft_lst_a_cheapest(t_list *list_a, t_list *list_b, int size_a, int *max_three)
-// {
-// 	t_list	*cheapest_node;
-// 	int		cheapest_moves;
-
-// 	cheapest_moves = size_a;
-// 	while (list_a)
-// 	{
-// 		list_a->cheapest = ft_abs(list_a->moves)
-// 			+ ft_abs(ft_get_moves(list_b, list_a->target->content));
-// 		if ((list_a->content != max_three[0]
-// 				|| list_a->content != max_three[1]
-// 				|| list_a->content != max_three[2])
-// 				 && (list_a->cheapest < cheapest_moves))
-// 		{
-// 			cheapest_moves = list_a->cheapest;
-// 			cheapest_node = list_a;
-// 		}
-// 		list_a = list_a->next;
-// 	}
-// 	return (cheapest_node);
-// }
-
-// static	t_list	*ft_lst_b_cheapest(t_list *list_b, t_list *list_a, int size_b)
-// {
-// 	t_list	*cheapest_node;
-// 	int		cheapest_moves;
-
-// 	cheapest_moves = size_b;
-// 	while (list_b)
-// 	{
-// 		list_b->cheapest = ft_abs(list_b->moves)
-// 			+ ft_abs(ft_get_moves(list_a, list_b->target->content));
-// 		if (list_b->cheapest < cheapest_moves)
-// 		{
-// 			cheapest_moves = list_b->cheapest;
-// 			cheapest_node = list_b;
-// 		}
-// 		list_b = list_b->next;
-// 	}
-// 	return (cheapest_node);
-// }
 
 t_list	*ft_lstcheapest(t_list *list_a, t_list *list_b, int *max_three)
 {
@@ -109,7 +66,7 @@ t_list	*ft_lstcheapest(t_list *list_a, t_list *list_b, int *max_three)
 		if (list_a->target)
 		{
 			list_a->cheapest = ft_abs(list_a->moves)
-				+ ft_abs(ft_get_moves(list_b, list_a->target->content));
+				+ ft_abs(ft_get_target_moves(list_b, list_a->target->content));
 			if (list_a->cheapest < cheapest_moves)
 			{
 				cheapest_moves = list_a->cheapest;

@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:31:58 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/23 05:39:27 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/24 04:19:15 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	exit_error(t_stack *stack_a, t_stack *stack_b)
 		ft_lstclear(&(stack_a->head));
 	if (stack_b && stack_b->head)
 		ft_lstclear(&(stack_b->head));
-	ft_printf(2, "%s", "Error\n");
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 

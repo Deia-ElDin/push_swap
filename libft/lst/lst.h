@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 12:09:34 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/24 02:05:15 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/24 04:09:12 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ void	ft_lsttarget(t_list *list_a, t_list *list_b, int *max_three);
 int		ft_lstmax(t_list *stack);
 int		ft_lstsize(t_list *lst);
 int		ft_lstmin(t_list *stack);
+int		*ft_lstmax_three(t_list *list);
 
 #endif
