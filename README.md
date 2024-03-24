@@ -8,17 +8,17 @@ Push Swap is a project that involves sorting a stack of integers using a limited
 
 The project involves the following moves:
 
-<span style="color:blue">- sa</span>: Swap the first two elements of stack A.
-<span style="color:blue">- sb</span>: Swap the first two elements of stack B.
-<span style="color:blue">- ss</span>: Apply sa and sb simultaneously.
-<span style="color:blue">- pa</span>: Push the first element of stack B onto stack A.
-<span style="color:blue">- pb</span>: Push the first element of stack A onto stack B.
-<span style="color:blue">- ra</span>: Rotate stack A - move all elements up by one. The first element becomes the last.
-<span style="color:blue">- rb</span>: Rotate stack B - move all elements up by one. The first element becomes the last.
-<span style="color:blue">- rr</span>: Apply ra and rb simultaneously.
-<span style="color:blue">- rra</span>: Reverse rotate stack A - move all elements down by one. The last element becomes the first.
-<span style="color:blue">- rrb</span>: Reverse rotate stack B - move all elements down by one. The last element becomes the first.
-<span style="color:blue">- rrr</span>: Apply rra and rrb simultaneously.
+- **sa**: Swap the first two elements of stack A.
+- **sb**: Swap the first two elements of stack B.
+- **ss**: Apply sa and sb simultaneously.
+- **pa**: Push the first element of stack B onto stack A.
+- **pb**: Push the first element of stack A onto stack B.
+- **ra**: Rotate stack A - move all elements up by one. The first element becomes the last.
+- **rb**: Rotate stack B - move all elements up by one. The first element becomes the last.
+- **rr**: Apply ra and rb simultaneously.
+- **rra**: Reverse rotate stack A - move all elements down by one. The last element becomes the first.
+- **rrb**: Reverse rotate stack B - move all elements down by one. The last element becomes the first.
+- **rrr**: Apply rra and rrb simultaneously.
 
 ## <span style="color:blue">Terminal Commands</span>
 
@@ -39,3 +39,4 @@ To use this project, follow these steps:
 3. Execute the push_swap program with a list of integers to be sorted.
 4. Optionally, use the checker program to verify the sorting.
 5. Enjoy sorting your stack efficiently!
+
