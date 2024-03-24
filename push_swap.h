@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:29:27 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/24 03:57:58 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/25 00:54:28 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,28 @@ typedef struct s_stack
 }	t_stack;
 
 // Parsing
-void	parsing(char **av, t_stack *stack_a);
+void	parsing(char **av, t_stack *a);
 
 // Sort
-void	sort(t_stack *stack_a, t_stack *stack_b);
+void	sort(t_stack *a, t_stack *b);
 
 // Stack Moves
-void	pa(t_stack *stack_b, t_stack *stack_a);
-void	pb(t_stack *stack_a, t_stack *stack_b);
-void	sa(t_stack *stack_a);
-void	sb(t_stack *stack_b);
-void	ss(t_stack *stack_a, t_stack *stack_b);
-void	ra(t_stack *stack_a);
-void	rb(t_stack *stack_b);
-void	rr(t_stack *stack_a, t_stack *stack_b);
-void	rra(t_stack *stack_a);
-void	rrb(t_stack *stack_b);
-void	rrr(t_stack *stack_a, t_stack *stack_b);
+void	pa(t_stack *b, t_stack *a);
+void	pb(t_stack *a, t_stack *b);
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
 
 // Stack Validation Utils
 void	stack_map(t_stack *stack, char **av, void (*f)(t_stack*, char*));
 bool	stack_iter(t_stack *stack, bool (*f)(int, t_list *));
-void	stack_create(t_stack *stack_a, char *av);
+void	stack_create(t_stack *a, char *av);
 bool	stack_is_not_duplicated(int value, t_list *next_node);
 bool	stack_is_sorted(int value, t_list *next_node);
 // bool	stack_is_chunk(int value, t_list *next_node);
@@ -54,8 +54,8 @@ void	push_and_sort(t_stack *from, t_stack *to, int *max_three);
 // void	push_and_sort_b(t_stack *from, t_stack *to);
 // Utils
 void	avs_iter(char **av, void (*f)(char*));
-void	exit_error(t_stack *stack_a, t_stack *stack_b);
-void	exit_success(t_stack *stack_a, t_stack *stack_b);
+void	exit_error(t_stack *a, t_stack *b);
+void	exit_success(t_stack *a, t_stack *b);
 
 
 #endif

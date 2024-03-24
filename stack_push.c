@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_push.c                                       :+:      :+:    :+:   */
+/*   push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -40,15 +40,15 @@ static void	push(t_stack *from, t_stack *to)
 	to->size++;
 }
 
-void	pa(t_stack *stack_b, t_stack *stack_a)
+void	pa(t_stack *b, t_stack *a)
 {
-	push(stack_b, stack_a);
+	push(b, a);
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_stack *stack_a, t_stack *stack_b)
+void	pb(t_stack *a, t_stack *b)
 {
-	push(stack_a, stack_b);
+	push(a, b);
 	write(1, "pb\n", 3);
 }
 
@@ -115,6 +115,6 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 					then our condition if (!to->last) will be false,
 					and we won't update the last ptr again.
 					the purpose of this condition is to update the last ptr
-					at the first time we push from stack_a to stack_b.
+					at the first time we push from a to b.
 	}
 */

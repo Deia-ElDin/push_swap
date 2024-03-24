@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:27:56 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/24 04:33:10 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/25 00:43:54 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ static	void	init_stack(t_stack *stack)
 
 int	main(int ac, char **av)
 {
-	t_stack	stack_a;
-	t_stack	stack_b;
+	t_stack	a;
+	t_stack	b;
 
 	if (ac <= 1)
 		return (0);
 	av++;
-	init_stack(&stack_a);
-	init_stack(&stack_b);
-	parsing(av, &stack_a);
-	sort(&stack_a, &stack_b);
+	init_stack(&a);
+	init_stack(&b);
+	parsing(av, &a);
+	sort(&a, &b);
 	return (0);
 }
 

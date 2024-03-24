@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_swap.c                                       :+:      :+:    :+:   */
+/*   swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -32,22 +32,22 @@ static void	swap(t_stack *stack)
 	stack->head = second_node;
 }
 
-void	sa(t_stack *stack_a)
+void	sa(t_stack *a)
 {
-	swap(stack_a);
+	swap(a);
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *stack_b)
+void	sb(t_stack *b)
 {
-	swap(stack_b);
+	swap(b);
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *stack_a, t_stack *stack_b)
+void	ss(t_stack *a, t_stack *b)
 {
-	swap(stack_a);
-	swap(stack_b);
+	swap(a);
+	swap(b);
 	write(1, "ss\n", 3);
 }
 

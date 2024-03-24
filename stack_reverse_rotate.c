@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_reverse_rotate.c                             :+:      :+:    :+:   */
+/*   reverse_rotate.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -32,22 +32,22 @@ static void	reverse_rotate(t_stack *stack)
 	stack->last = pre_last_node;
 }
 
-void	rra(t_stack *stack_a)
+void	rra(t_stack *a)
 {
-	reverse_rotate(stack_a);
+	reverse_rotate(a);
 	write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack *stack_b)
+void	rrb(t_stack *b)
 {
-	reverse_rotate(stack_b);
+	reverse_rotate(b);
 	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack *stack_a, t_stack *stack_b)
+void	rrr(t_stack *a, t_stack *b)
 {
-	reverse_rotate(stack_a);
-	reverse_rotate(stack_b);
+	reverse_rotate(a);
+	reverse_rotate(b);
 	write(1, "rrr\n", 4);
 }
 

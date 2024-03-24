@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 11:14:46 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/24 03:52:40 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/25 01:26:37 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,15 @@ static int	ft_get_target_moves(t_list *list, int a_target)
 	return (0);
 }
 
-t_list	*ft_lstcheapest(t_list *list_a, t_list *list_b, int *max_three)
+t_list	*ft_lstcheapest(t_list *list_a, t_list *list_b)
 {
 	t_list	*cheapest_node;
 	int		cheapest_moves;
-	int		size_a;
-	int		size_b;
 
-	(void)max_three;
 	if (!list_a || !list_b)
 		return (NULL);
-	size_a = ft_lstsize(list_a);
-	size_b = ft_lstsize(list_b);
-	ft_list_moves(list_a, size_a);
-	ft_list_moves(list_b, size_b);
+	ft_list_moves(list_a, ft_lstsize(list_a));
+	ft_list_moves(list_b, ft_lstsize(list_b));
 	cheapest_moves = INT_MAX;
 	cheapest_node = NULL;
 	while (list_a)
