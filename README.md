@@ -1,10 +1,10 @@
-# **<font color="blue">Push Swap</font>**
+# Push Swap
 
-## **<font color="blue">Overview</font>**
+## Overview
 
 Push Swap is a project that involves sorting a stack of integers using a limited set of operations on two stacks, such as swapping elements and rotating the stacks. The goal is to implement an algorithm that sorts the stack in the fewest possible operations.
 
-## **<font color="blue">Moves</font>**
+## Moves
 
 The project involves the following moves:
 
@@ -20,7 +20,7 @@ The project involves the following moves:
 - **rrb**: Reverse rotate stack B - move all elements down by one. The last element becomes the first.
 - **rrr**: Apply rra and rrb simultaneously.
 
-## **<font color="blue">Terminal Commands</font>**
+## Terminal Commands
 
 Here are the terminal commands used in this project:
 
@@ -30,7 +30,7 @@ Here are the terminal commands used in this project:
 - To execute the push_swap program and check the sorting: `$ARG=[list of integers] ./push_swap $ARG | ./checker $ARG`
 - To execute the push_swap program with visualizer: `$ARG=[list of integers] ./push_swap $ARG | ./visualizer $ARG`
 
-## **<font color="blue">Usage</font>**
+## Usage
 
 To use this project, follow these steps:
 

@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 09:13:05 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/25 01:27:30 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/25 08:08:03 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ void	push_and_sort(t_stack *a, t_stack *b, int *max_three)
 
 	ft_lsttarget(a->head, b->head, max_three);
 	cheapest_node = ft_lstcheapest(a->head, b->head);
-	// ft_printf(1, "\nstack a: \n%l\n", a->head);
-	// ft_printf(1, "\nstack b: \n%l\n", b->head);
-	// printf("cheapest_node: %d\n", cheapest_node->content);
 	while (cheapest_node->moves)
 		rotate_to_top(a, b, cheapest_node);
 	if (!cheapest_node->moves)
@@ -56,5 +53,7 @@ void	push_and_sort(t_stack *a, t_stack *b, int *max_three)
 	}
 }
 /*
-	2
+	ft_printf(1, "\nstack a: \n%l\n", a->head);
+	ft_printf(1, "\nstack b: \n%l\n", b->head);
+	printf("cheapest_node: %d\n", cheapest_node->content);
 */

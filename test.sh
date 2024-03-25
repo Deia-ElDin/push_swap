@@ -1,3 +1,5 @@
+# chmod +x test.sh
+
 MIN_RANGE=-250
 MAX_RANGE=250
 THRESHOLD=5500
