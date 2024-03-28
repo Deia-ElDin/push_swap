@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:22:42 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/25 00:54:21 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/28 09:41:25 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ static void	is_invalid_user_input(char *av)
 	{
 		if (!(av[i] == ' ' || ft_issign(av[i]) || ft_isdigit(av[i])))
 			exit_error(NULL, NULL);
-		if (ft_issign(av[i]) && !ft_isdigit(av[i + 1]))
+		if (av[i + 1] && ft_issign(av[i]) && !ft_isdigit(av[i + 1]))
 			exit_error(NULL, NULL);
-		if (ft_isdigit(av[i]) && ft_issign(av[i + 1]))
+		if (av[i + 1] && ft_isdigit(av[i]) && ft_issign(av[i + 1]))
 			exit_error(NULL, NULL);
 		i++;
 	}

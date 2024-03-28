@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 13:15:11 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 06:43:29 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/28 13:59:46 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ static char	*handle_print(char *format, t_fmt *fmt)
 		ft_pfunit(fmt, 16);
 	else if (*format == 'a')
 		ft_pfarr(fmt);
-	else if (*format == 'l')
-		ft_pflist(fmt);
 	init_reset_fmt(fmt);
 	return (++format);
 }

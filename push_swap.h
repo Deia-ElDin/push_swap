@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:29:27 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/25 00:54:28 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/28 10:27:06 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,15 @@ bool	stack_iter(t_stack *stack, bool (*f)(int, t_list *));
 void	stack_create(t_stack *a, char *av);
 bool	stack_is_not_duplicated(int value, t_list *next_node);
 bool	stack_is_sorted(int value, t_list *next_node);
-// bool	stack_is_chunk(int value, t_list *next_node);
 
 // Sort Utils
-void	push_and_sort(t_stack *from, t_stack *to, int *max_three);
-// void	push_and_sort_b(t_stack *from, t_stack *to);
+void	pb_and_sort_descending(t_stack *from, t_stack *to);
+void	pa_and_sort_ascending(t_stack *a, t_stack *b);
+
 // Utils
 void	avs_iter(char **av, void (*f)(char*));
 void	exit_error(t_stack *a, t_stack *b);
 void	exit_success(t_stack *a, t_stack *b);
-
 
 #endif
 

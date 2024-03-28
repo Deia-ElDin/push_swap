@@ -6,7 +6,7 @@
 /*   By: dehamad <dehamad@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 14:06:12 by dehamad           #+#    #+#             */
-/*   Updated: 2024/03/18 06:28:13 by dehamad          ###   ########.fr       */
+/*   Updated: 2024/03/28 13:59:35 by dehamad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	ft_pfptr(t_fmt *fmt);
 void	ft_pfint(t_fmt *fmt);
 void	ft_pfunit(t_fmt *fmt, int base);
 void	ft_pfarr(t_fmt *fmt);
-void	ft_pflist(t_fmt *fmt);
 void	ft_reset_fmt(t_fmt *fmt, char type);
 void	ft_pfputnbr_base(t_fmt *fmt, long long nbr, int base);
 
